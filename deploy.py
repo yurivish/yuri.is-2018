@@ -12,7 +12,7 @@ def main():
 	# Build assets
 	build_assets.main()
 
-	call(['git', 'branch', '-d', 'gh-pages'])
+	call(['git', 'branch', '-D', 'gh-pages'])
 	call(['git', 'checkout', '--orphan', 'gh-pages'])
 	call(['git', 'reset'])
 	call(['git', 'commit', '--allow-empty', '-m', 'Initial commit'])
