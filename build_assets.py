@@ -22,11 +22,6 @@ def relpath(path=''):
 	here = os.path.dirname(os.path.realpath(__file__))
 	return os.path.join(here, path)
 
-def ensure_exists(path):
-	'''Recursively create any neecssarly subdirectories.'''
-	if not os.path.exists(path):
-		os.makedirs(path)
-
 def main():
 	'''Update the assets repository and generate resized photos into `content/photo/images`.'''
 
@@ -39,9 +34,6 @@ def main():
 		call(['git', 'clone', 'https://github.com/yurivish/assets'], cwd=relpath())
 
 	print("Generating images.")
-
-	# The contents of this directory are ignored by git, so it may not exist.
-	ensure_exists(relpath('content/photo/image'))
 
 	# Iterate through all photo posts, then regenerate any missing or outdated images.
 	for path in glob.glob(relpath('content/photo/*.md')):
