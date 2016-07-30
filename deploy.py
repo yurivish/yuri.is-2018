@@ -11,8 +11,8 @@ def main():
 		print("This repository contains uncommitted changes. Commit them in order to deploy.")
 		return
 
-	if not (os.path.exists('public') and os.path.exists('public/.git')):
-		shutil.rmtree(relpath('public'))
+	if not os.path.exists('public/.git'):
+		if os.path.exists('public'): shutil.rmtree(relpath('public'))
 		call(['git', 'worktree', 'add', '-b', 'gh-pages', 'public', 'origin/gh-pages'], cwd=relpath())
 
 	# Build assets
