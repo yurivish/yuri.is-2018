@@ -23,7 +23,7 @@ def main():
 
 	call(['git', 'add', '--all'], cwd=relpath('dist'))
 	call(['git', 'commit', '-m', 'Deploy.'], cwd=relpath('dist'))
-	call(['git', 'push', '--set-upstream', 'origin', 'gh-pages'], cwd=relpath('dist'))
+	call(['git', 'push', '--force', '--set-upstream', 'origin', 'gh-pages'], cwd=relpath('dist'))
 
 	# shutil.rmtree(relpath('dist'))
 	# rm dist
