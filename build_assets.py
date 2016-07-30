@@ -27,13 +27,13 @@ def main():
 
 	# Ensure assets exist and are up to date
 	if os.path.exists('assets'):
-		assert(len(check_output(['git', 'status', '--porcelain'])) == 0)
-		print("Pulling latest assets.")
+		assert(len(check_output(['git', 'status', '--porcelain'], cwd=relpath('assets'))) == 0)
+		print('Pulling latest assets.')
 		call(['git', 'pull'], cwd=relpath('assets'))
 	else:
 		call(['git', 'clone', 'https://github.com/yurivish/assets'], cwd=relpath())
 
-	print("Generating images.")
+	print('Generating images.')
 
 	# Iterate through all photo posts, then regenerate any missing or outdated images.
 	for path in glob.glob(relpath('content/photo/*.md')):
@@ -52,7 +52,7 @@ def main():
 		generate_if_needed(inpath, outpath_1x, 1)
 		generate_if_needed(inpath, outpath_2x, 2)
 
-	print("Done.")
+	print('Done.')
 
 if __name__ == '__main__':
 	main()

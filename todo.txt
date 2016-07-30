@@ -1,3 +1,4 @@
 - set latexDashes to false for the markdown renderer
 x sync at least sublime settings between laptop and desktop
 - use ace for templates. it's like a nice jade.
+- check out https://www.sublimetext.com/docs/3/projects.html for removiong unwanted files from the project, like public
