@@ -13,7 +13,8 @@ def main():
 
 	if not os.path.exists('public/.git'):
 		if os.path.exists('public'): shutil.rmtree(relpath('public'))
-		call(['git', 'worktree', 'add', '-B', 'gh-pages', 'public', 'origin/gh-pages'], cwd=relpath())
+		call(['git', 'branch', '-d', 'gh-pages'])
+		call(['git', 'worktree', 'add', '-b', 'gh-pages', 'public', 'origin/gh-pages'], cwd=relpath())
 
 	# Build assets
 	build_assets.main()
