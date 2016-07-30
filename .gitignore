@@ -2,6 +2,8 @@
 # The assets directory is created by the build script.
 # Assets are versioned separately.
 assets
-# Cotent images are computed from the assets.
+# Content images are computed from the assets.
 content/photo/image/*.jpg
 content/photo/image/*.png
+# Ignore the public folder on master.
+public

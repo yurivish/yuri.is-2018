@@ -36,7 +36,6 @@ def main():
 		assert(len(output) == 0)
 		print("Pulling latest assets.")
 		call(['git', 'pull'], cwd='assets')
-		pass
 	else:
 		call(['git', 'clone', 'https://github.com/yurivish/assets'])
 

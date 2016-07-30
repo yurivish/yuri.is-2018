@@ -1,0 +1,10 @@
+{{ partial "header" . }}
+{{ range .Data.Pages }}
+	<!-- {{ printf "%#v" . }} -->
+	{{ $name := .File.BaseFileName }}
+	<img 
+		width='150'
+		src="image/{{ $name }}.jpg"  
+		srcset='image/{{ $name }}.jpg 1000w, image/{{ $name }}@2x.jpg 2000w'  />
+{{ end }}
+{{ partial "footer" . }}

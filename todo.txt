@@ -1,2 +1,3 @@
 - set latexDashes to false for the markdown renderer
-- sync at least sublime settings between laptop and desktop
+x sync at least sublime settings between laptop and desktop
+- use ace for templates. it's like a nice jade.
