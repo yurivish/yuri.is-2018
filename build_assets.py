@@ -38,7 +38,7 @@ def main():
 		call(['git', 'pull'], cwd='assets')
 		pass
 	else:
-		call(['git', 'clone', 'https://github.com/yurivish/yuri.is'])
+		call(['git', 'clone', 'https://github.com/yurivish/assets'])
 
 	print("Generating images.")
 
@@ -50,8 +50,8 @@ def main():
 		(name, ext) = os.path.splitext(os.path.basename(path)) # e.g. (flower, md)
 
 		# Determine whether to use the edited or original photo
-		edited_path   = relpath('assets/photo/edited/%s.jpg' % name)
 		original_path = relpath('assets/photo/original/%s.jpg' % name)
+		edited_path   = relpath('assets/photo/edited/%s.jpg' % name)
 		inpath = edited_path if os.path.exists(edited_path) else original_path
 		assert(os.path.exists(inpath)) # Assert the input exists
 
