@@ -1,0 +1,4 @@
+baseurl = "http://yuri.is/"
+languageCode = "en-us"
+title = "Yuri Vishnevsky"
+theme = "minimal"

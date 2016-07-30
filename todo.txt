@@ -1,0 +1,2 @@
+- set latexDashes to false for the markdown renderer
+- sync at least sublime settings between laptop and desktop
