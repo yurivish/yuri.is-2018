@@ -19,7 +19,7 @@ def main():
 	call(['git', 'reset'])
 	call(['git', 'commit', '--allow-empty', '-m', 'Initial commit'])
 	call(['git', 'checkout', '--force', 'master'])
-	call(['git', 'worktree', 'add', 'dist', 'gh-pages'])
+	call(['git', 'worktree', 'add', 'dist', 'origin/gh-pages'])
 	call(['hugo'])
 	call(['cp', '-a', 'public/.', 'dist'])
 
