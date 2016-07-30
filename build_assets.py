@@ -14,7 +14,7 @@ def generate_if_needed(inpath, outpath, scale):
 	'''Generate `outpath` from `inpath` if it doesn't exist or is outdated'''
 	size_1x = 1000 # Output image width. Smaller images will be left alone and not upsampled.
 	if not (os.path.exists(outpath) and os.path.getmtime(inpath) < os.path.getmtime(outpath)):
-		print('Generating %s@%sx' % (name, scale))
+		print('Generating %s' % outpath)
 		resize(inpath, scale * size_1x, outpath)
 
 def relpath(path):
