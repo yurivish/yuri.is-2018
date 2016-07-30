@@ -6,28 +6,35 @@ from build_assets import relpath
 import build_assets
 
 def main():
-	clean = len(check_output(['git', 'status', '--porcelain'], cwd=relpath())) == 0
-	if not clean:
-		print("This repository contains uncommitted changes. Commit them in order to deploy.")
-		return
-
-	if not os.path.exists('public/.git'):
-		if os.path.exists('public'): shutil.rmtree(relpath('public'))
-		call(['git', 'branch', '-d', 'gh-pages'])
-		call(['git', 'worktree', 'add', '-b', 'gh-pages', 'public', 'origin/gh-pages'], cwd=relpath())
+	if os.path.exists('public'):
+		shutil.rmtree(relpath('public'))
 
 	# Build assets
 	build_assets.main()
 
-	public = relpath('public')
-
 	# Build the static site
 	call(['hugo'], cwd=relpath())
 
-	# Commit and push gh-pages
-	call(['git', 'add', '.'], cwd=public)
-	call(['git', 'commit', '-m', 'Update website.'], cwd=public)
-	call(['git', 'push'], cwd=public)
+	
+	# clean = len(check_output(['git', 'status', '--porcelain'], cwd=relpath())) == 0
+	# if not clean:
+	# 	print("This repository contains uncommitted changes. Commit them in order to deploy.")
+	# 	return
+
+	# if not os.path.exists('public/.git'):
+	# 	if os.path.exists('public'): shutil.rmtree(relpath('public'))
+	# 	call(['git', 'branch', '-d', 'gh-pages'])
+	# 	call(['git', 'worktree', 'add', '-b', 'gh-pages', 'public', 'origin/gh-pages'], cwd=relpath())
+
+	# # Build assets
+	# build_assets.main()
+
+	# public = relpath('public')
+
+	# # Commit and push gh-pages
+	# call(['git', 'add', '.'], cwd=public)
+	# call(['git', 'commit', '-m', 'Update website.'], cwd=public)
+	# call(['git', 'push'], cwd=public)
 
 if __name__ == '__main__':
 	main()
