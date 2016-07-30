@@ -12,22 +12,19 @@ def main():
 	# Build assets
 	build_assets.main()
 
-	# Build the static site
-	# call(['hugo'], cwd=relpath())
-
 	call(['git', 'checkout', '--orphan', 'gh-pages'])
 	call(['git', 'reset'])
 	call(['git', 'commit', '--allow-empty', '-m', 'Initial commit'])
 	call(['git', 'checkout', '--force', 'master'])
-	call(['git', 'worktree', 'add', 'dist', 'origin/gh-pages'])
+	call(['git', 'worktree', 'add', 'dist', 'gh-pages'])
 	call(['hugo'])
 	call(['cp', '-a', 'public/.', 'dist'])
 
 	call(['git', 'add', '--all'], cwd=relpath('dist'))
 	call(['git', 'commit', '-m', 'Deploy.'], cwd=relpath('dist'))
-	call(['git', 'push'], cwd=relpath('dist'))
+	call(['git', 'push', '--set-upstream', 'origin', 'gh-pages'], cwd=relpath('dist'))
 
-	shutil.rmtree(relpath('dist'))
+	# shutil.rmtree(relpath('dist'))
 	# rm dist
 
 	
