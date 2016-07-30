@@ -16,7 +16,7 @@ def main():
 		call(['git', 'worktree', 'add', '-b', 'gh-pages', 'public', 'origin/gh-pages'], cwd=relpath())
 
 	# Build assets
-	built_assets.main()
+	build_assets.main()
 
 	public = relpath('public')
 
