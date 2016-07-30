@@ -8,7 +8,7 @@ from subprocess import call, check_output
 
 def resize(inpath, width, outpath, quality='95%'): 
 	'''Resize an image with imagemagick's `convert`.'''
-	call(['convert', inpath, '-resize', '%sx>' % width, '-quality', quality, '-define', 'jpeg:preserve-settings', outpath])
+	call(['convert', inpath, '-resize', '%sx>' % width, '-quality', quality, '-define', 'jpeg:preserve-settings', outpath], cwd=relpath(''))
 
 def generate_if_needed(inpath, outpath, scale):
 	'''Generate `outpath` from `inpath` if it doesn't exist or is outdated'''
@@ -32,12 +32,11 @@ def main():
 
 	# Ensure assets exist and are up to date
 	if os.path.exists('assets'):
-		output = check_output(['git', 'status', '--porcelain'], cwd='assets')
-		assert(len(output) == 0)
+		assert(len(check_output(['git', 'status', '--porcelain'])) == 0)
 		print("Pulling latest assets.")
-		call(['git', 'pull'], cwd='assets')
+		call(['git', 'pull'], cwd=relpath('assets'))
 	else:
-		call(['git', 'clone', 'https://github.com/yurivish/assets'])
+		call(['git', 'clone', 'https://github.com/yurivish/assets'], cwd=relpath(''))
 
 	print("Generating images.")
 
