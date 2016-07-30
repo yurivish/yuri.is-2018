@@ -12,6 +12,7 @@ def main():
 	# Build assets
 	build_assets.main()
 
+	call(['git', 'branch', '-d', 'gh-pages'])
 	call(['git', 'checkout', '--orphan', 'gh-pages'])
 	call(['git', 'reset'])
 	call(['git', 'commit', '--allow-empty', '-m', 'Initial commit'])
@@ -27,26 +28,6 @@ def main():
 	# shutil.rmtree(relpath('dist'))
 	# rm dist
 
-	
-	# clean = len(check_output(['git', 'status', '--porcelain'], cwd=relpath())) == 0
-	# if not clean:
-	# 	print("This repository contains uncommitted changes. Commit them in order to deploy.")
-	# 	return
-
-	# if not os.path.exists('public/.git'):
-	# 	if os.path.exists('public'): shutil.rmtree(relpath('public'))
-	# 	call(['git', 'branch', '-d', 'gh-pages'])
-	# 	call(['git', 'worktree', 'add', '-b', 'gh-pages', 'public', 'origin/gh-pages'], cwd=relpath())
-
-	# # Build assets
-	# build_assets.main()
-
-	# public = relpath('public')
-
-	# # Commit and push gh-pages
-	# call(['git', 'add', '.'], cwd=public)
-	# call(['git', 'commit', '-m', 'Update website.'], cwd=public)
-	# call(['git', 'push'], cwd=public)
 
 if __name__ == '__main__':
 	main()
