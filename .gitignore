@@ -1,4 +1,5 @@
 .DS_Store
+*.pyc
 
 # The assets directory is created by the build script.
 # Assets are versioned separately.
