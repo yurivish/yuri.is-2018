@@ -1,0 +1,22 @@
+{{ partial "page_header" . }}
+{{ partial "header" "scribbles" }}
+<main class="scribbles">
+	<div class="inner">
+		<section class="quote">
+			<div class="text">&ldquo;I must have scribbles, always, and always.&rdquo;</div>
+			<div class="author">&mdash; Claude Monet</div>
+		</section>
+
+		{{ $count := (len .Data.Pages) }}
+		{{ range $index, $page := .Data.Pages }}
+			<article class='scribble'>
+				<div class="meta">
+					<span>Scribble No. {{ sub $count $index }}</span>
+					<time>{{ .Date.Format "January 2006" }}</time>
+				</div>
+				 {{ .Content }}
+			</article>
+		{{ end }}
+	</div>
+</main>
+{{ partial "page_footer" . }}

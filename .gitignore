@@ -6,8 +6,8 @@
 assets
 
 # Content images are computed from the assets.
-content/photo/image/*.jpg
-content/photo/image/*.png
+content/photos/image/*.jpg
+content/photos/image/*.png
 
 # Ignore the public folder on master.
 public

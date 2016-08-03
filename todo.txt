@@ -1,4 +1,20 @@
 - set latexDashes to false for the markdown renderer
-x sync at least sublime settings between laptop and desktop
 - use ace for templates. it's like a nice jade.
 - check out https://www.sublimetext.com/docs/3/projects.html for removiong unwanted files from the project, like public
+- sync fish settings
+- highlight color
+- now page (home page?)
+- make headings wider than the paragraphs?
+- consolidate fonts and remove those unused from the css
+
+x figure out what to do with the quote when small screens
+x regenerate images at 543px wide
+x iphone layout
+x sync at least sublime settings between laptop and desktop
+
+
+favorite books
+	- winnie the pooh
+	- beautiful evidence
+	- envisioning information
+	

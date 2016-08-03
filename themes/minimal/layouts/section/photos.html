@@ -1,0 +1,29 @@
+{{ partial "page_header" . }}
+{{ partial "header" "photos" }}
+<!-- {{ printf "%#v" . }} -->
+
+<main class="photos">
+	<div class="inner">
+		<section class="quote">
+			<div class="text">&ldquo;Your first 10,000 photographs are your worst.&rdquo;</div>
+			<div class="author">&mdash; Henri Cartier-Bresson</div>
+		</section>
+
+		{{ $count := (len .Data.Pages) }}
+		{{ range $index, $page := .Data.Pages }}
+			{{ $name := .File.BaseFileName }}
+			<article>
+				<div class="meta">
+					<span>Photo No. {{ sub $count $index }}</span>
+					<time>{{ .Date.Format "January 2006" }}</time>
+				</div>
+				<h1>{{ .Title }}</h1>
+				<figure>
+					<img src="image/{{ $name }}.jpg" srcset="image/{{ $name }}.jpg 1000w, image/{{ $name }}@2x.jpg 2000w"  />
+				</figure>
+			</article>
+		{{ end }}
+	</div>
+</main>
+
+{{ partial "page_footer" . }}
