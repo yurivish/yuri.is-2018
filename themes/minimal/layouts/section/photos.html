@@ -4,10 +4,10 @@
 
 <main class="photos">
 	<div class="inner">
-		<section class="quote">
-			<div class="text">&ldquo;Your first 10,000 photographs are your worst.&rdquo;</div>
-			<div class="author">&mdash; Henri Cartier-Bresson</div>
-		</section>
+		<blockquote>
+			&ldquo;Your first 10,000 photographs are your worst.&rdquo;
+			<cite>&mdash; Henri Cartier-Bresson</cite>
+		</blockquote>
 
 		{{ $count := (len .Data.Pages) }}
 		{{ range $index, $page := .Data.Pages }}

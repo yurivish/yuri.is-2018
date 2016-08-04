@@ -38,7 +38,7 @@ body {
 		padding-top: 90px;
 	}
 
-	.quote {
+	 blockquote {
 		text-align: left;
 		margin-top: -0.55em; /* to adjust the top of the quote to the top of ny name */
 	}
@@ -64,7 +64,7 @@ body {
 		padding-top: 50px;
 	}
 
-	.quote {
+	 blockquote {
 		text-align: left;
 	}
 }
@@ -114,21 +114,23 @@ main .inner {
 	max-width: 650px;
 }
 
-.quote {
+ blockquote {
 	cursor: default;
 	line-height: 1.35;
 	transition: opacity 0.5s ease-out;
 	opacity: 1;
-	margin-bottom: 4em;
+	margin-bottom: 2em;
 }
 
-.quote .text {
+ blockquote {
 	font-family: "Equity Text A";
 	font-weight: bold;
 	font-size: 42px;
 }
 
-.quote .author {
+ blockquote cite {
+ 	display: block;
+ 	font-weight: normal;
 	font-family: "Equity Text A";
 	font-style: italic;
 	font-size: 16px;
@@ -138,7 +140,7 @@ main .inner {
 article h1 {
 	font-family: "Concourse T7";
 	font-size: 36px;
-	margin-bottom: 1em;
+	margin-bottom: 1.5em;
 }
 
 article .meta {
@@ -159,8 +161,8 @@ article p {
 	margin-bottom: 1.35em;
 }
 
-.photos .quote { color: #ff6666; }
-.scribbles .quote { color: #ff8181; }
+.photos  blockquote { color: #ff6666; }
+.scribbles  blockquote { color: #ff8181; }
 
 main.photos { background: #FFD86A; }
 main.scribbles { background: #5A536B; }
@@ -169,17 +171,30 @@ main.scribbles { background: #5A536B; }
 .scribbles article .meta { color: #A6A1B0; }
 
 .photos article { color: #000; }
-.scribbles article { color: #e9e0fe; }
+.scribbles article { color: #eee6ff; }
 
 .photos article h1, h2, h3 { color: #000; }
 .scribbles article h1, h2, h3 {color: #fff; }
 
 .scribbles article em {
+	/*
 	color: #fff2cd;
-	background: rgba(255, 129, 129, 0.63);
-	font-style: italic;
+	color: #ffdd75;
+	color: #fff;
+
+
+	background: rgba(255, 129, 129, 0.35);
 	padding: 3px;
-	margin: -3px 0;
+	margin: -3px;
+
+	
+	*/
+
+	color: #fff2cd;
+
+
+
+	font-style: italic;
 	border-radius: 2px;
 }
 

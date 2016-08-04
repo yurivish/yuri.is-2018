@@ -2,11 +2,11 @@
 {{ partial "header" "scribbles" }}
 <main class="scribbles">
 	<div class="inner">
-		<section class="quote">
-			<div class="text">&ldquo;I must have scribbles, always, and always.&rdquo;</div>
-			<div class="author">&mdash; Claude Monet</div>
-		</section>
-
+		<!-- <blockquote>
+			&ldquo;Some people have a way with words, and other people...oh, uh, not have way.&rdquo;
+			<cite>&mdash; Steve Martin</cite>
+		</blockquote>
+		 -->
 		{{ $count := (len .Data.Pages) }}
 		{{ range $index, $page := .Data.Pages }}
 			<article class='scribble'>
