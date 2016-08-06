@@ -18,3 +18,14 @@ favorite books
 	- beautiful evidence
 	- envisioning information
 	
+potential posts
+	- mtg color visualization
+	- mtg pixelplacing
+	- map of google autocompletes
+	- not map but just fun google autocompletes
+	- simple blur-ish inpainting
+	- flood fill
+	- simple low-level nearest neighbor search
+		- z-order curves
+	- signed distance fields
+	

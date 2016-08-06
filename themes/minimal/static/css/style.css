@@ -177,23 +177,7 @@ main.scribbles { background: #5A536B; }
 .scribbles article h1, h2, h3 {color: #fff; }
 
 .scribbles article em {
-	/*
 	color: #fff2cd;
-	color: #ffdd75;
-	color: #fff;
-
-
-	background: rgba(255, 129, 129, 0.35);
-	padding: 3px;
-	margin: -3px;
-
-	
-	*/
-
-	color: #fff2cd;
-
-
-
 	font-style: italic;
 	border-radius: 2px;
 }
