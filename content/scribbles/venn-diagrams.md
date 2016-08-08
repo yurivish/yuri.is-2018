@@ -23,13 +23,13 @@ draft = true
   </defs>
 </svg>
 
-Sometimes you want to draw an _area proportional_ venn diagram, in which the overlap between two circles accurately shows the overlap between two sets. 
+Sometimes you want to draw a venn diagram that is _area proportional_, where the overlap between two circles accurately represents the overlap between two sets. 
 
 <svg id='drawing-venn-diagrams-2' class='block'></svg>
 
-You'll need to know the distance between the two circles that will give you the overlap you want. There is no closed-form solution, but you can optimize over an area function that returns the overlap for a given distance. 
+To draw one you need to know how far apart to position the circles. There's no closed-form expression for the distance, but if you define a function from distance to overlap area then you can optimize over it to approximate the right distance to arbitrary precision.
 
-You can find the code on [GitHub](-).
+[See the code &raquo;](-)
 
 <script src='venn-diagrams/script.js'></script>
 

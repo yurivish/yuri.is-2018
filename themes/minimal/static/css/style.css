@@ -112,6 +112,7 @@ header.scribbles nav a.scribbles {
 
 main .inner {
 	max-width: 650px;
+	min-width: 320px;
 }
 
  blockquote {
@@ -203,13 +204,12 @@ main.scribbles { background: #5A536B; }
 .scribbles svg.block {
 	display: block;
 	width: 100%;
-	background: #000;
+	overflow: visible;
 }
 
 .scribble svg text {
-	font: 16px/1.0 "Concourse C6";
+	font: 15px/1.0 "Concourse C6";
 	fill: #F6F2FF;
-	/* text-shadow: 1px 1px 0px #000; */
 }
 
 article .meta time {
