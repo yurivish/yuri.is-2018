@@ -27,7 +27,7 @@ Sometimes you want to draw an _area proportional_ venn diagram, in which the ove
 
 <svg id='drawing-venn-diagrams-2' class='block'></svg>
 
-You'll need to know the distance between the two circles that will give you the overlap you want. There is no closed-form solution, but you can optimize over an area function that returns the overlap for a given distance. 
+To do this, you need to know the distance between the two circles that results in the overlap you want. To find the distance you can optimize over an area function which returns the overlap for a given distance. 
 
 You can find the code on [GitHub](-).
 
