@@ -6,6 +6,9 @@
 - now page (home page?)
 - make headings wider than the paragraphs?
 - consolidate fonts and remove those unused from the css
+- use css fonts for fonts
+- figure out the text of the svg labels
+- figure out how to make the svg wider than the page contents so it can spill out
 
 x figure out what to do with the quote when small screens
 x regenerate images at 543px wide

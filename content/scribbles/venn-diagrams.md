@@ -6,7 +6,7 @@ draft = true
 
 # Drawing Venn Diagrams
 
-<svg id='drawing-venn-diagrams'>
+<svg id='drawing-venn-diagrams-1' class='block'>
 	<defs>
     <linearGradient id="drawing-venn-diagrams-grad-c1" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" stop-color="#E84D4D" />
@@ -23,16 +23,13 @@ draft = true
   </defs>
 </svg>
 
-Here's a small set of functions for
+Sometimes you want to draw an _area proportional_ venn diagram, in which the overlap between two circles accurately shows the overlap between two sets. 
 
-<!-- TODO: Figure out the best way to run this after the page loads -->
+<svg id='drawing-venn-diagrams-2' class='block'></svg>
+
+You'll need to know the distance between the two circles that will give you the overlap you want. There is no closed-form solution, but you can optimize over an area function that returns the overlap for a given distance. 
+
+You can find the code on [GitHub](-).
+
 <script src='venn-diagrams/script.js'></script>
-
-<!--
-note: these comments are visible in the generated html.
-TODO: Labels?
-TODO: Angles?
-TODO: Come up with a few amusing venn diagrams. [People who likes ice cream | People who has hands]
- -->
-
 
