@@ -1,3 +1,4 @@
+"use strict";
 // TODO: Namespace – typescript?
 
 // Since `overlapArea` function is monotonic increasing, we can perform a
@@ -89,7 +90,7 @@ function venn(update) {
 }
 
 function one() {
-  var svg = d3.select('svg#drawing-venn-diagrams-1')
+  var svg = d3.select('#venn-diagrams svg.top')
 
   let width = svg.node().getBoundingClientRect().width
   let height = 300
@@ -128,7 +129,7 @@ function one() {
 }
 
 function two() {
-  let svg = d3.select('svg#drawing-venn-diagrams-2')
+  let svg = d3.select('#venn-diagrams svg.overlaps')
   let width = svg.node().getBoundingClientRect().width
 
   let spacings = [0.1, 0.25, 0.5, 0.75, 1]

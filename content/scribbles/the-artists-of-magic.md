@@ -2,6 +2,9 @@
 date = "2016-08-09T19:44:46-04:00"
 title = "the artists of magic"
 draft = true
+script = true
+style = true
+seq = 2
 
 +++
 
@@ -13,15 +16,13 @@ By the numbers, the most prolific Magic artist of all time is [Kev Walker](http:
 
 The charts below reveal patterns of artistic contribution over time. Card sets are ordered horizontally over time, with card volume shown by height. Hover over a chart to compare individual sets across artists.
 
-<svg id='the-artists-of-magic-1' class='block'>
+<svg class='block'>
 		<defs>
 	    <linearGradient id="the-artists-of-magic-g1" x1="0%" y1="0%" x2="0%" y2="100%">
 	      <stop offset="0%" stop-color="#3CF3FF" />
 	      <stop offset="100%" stop-color="#85B1F5" />
-	      <!-- 677ABF"#55F4FF" /> -->
 	    </linearGradient>
 	  </defs>
 </svg>
-<script src='the-artists-of-magic/script.js'></script>
 
 _Data notes --_ Card counts include reprints. Sets are only core sets and expansions, and not special sets like [Portal](https://en.wikipedia.org/wiki/Portal_(Magic:_The_Gathering)) and [Unglued](https://en.wikipedia.org/wiki/Unglued). Here's the [source data](http://mtgjson.com).

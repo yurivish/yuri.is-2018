@@ -5,3 +5,4 @@ theme = "minimal"
 
 [blackfriday]
 latexDashes = false
+plainIDAnchors = false

@@ -1,0 +1,17 @@
+{{ partial "page_header" . }}
+{{ partial "header" "scribbles" }}
+<main class="scribbles">
+	<div class="inner">
+		{{ $name := .File.BaseFileName }}
+		<article id="{{ $name }}" class='scribble'>
+			{{ if .Params.style }}<link rel="stylesheet" type="text/css" href="/scribbles/{{ $name }}/style.css">{{ end }}
+			<div class="meta">
+				<span>Scribble No. {{ .Params.seq }}</span>
+				<time>{{ .Date.Format "January 2006" }}</time>
+			</div>
+			 {{ .Content }}
+			{{ if .Params.script }}<script src="/scribbles/{{ $name }}/script.js" charset="utf-8"></script>{{ end }}
+		</article>
+	</div>
+</main>
+{{ partial "page_footer" . }}

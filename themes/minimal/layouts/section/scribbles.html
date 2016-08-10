@@ -2,19 +2,16 @@
 {{ partial "header" "scribbles" }}
 <main class="scribbles">
 	<div class="inner">
-		<!-- <blockquote>
-			&ldquo;Some people have a way with words, and other people...oh, uh, not have way.&rdquo;
-			<cite>&mdash; Steve Martin</cite>
-		</blockquote>
-		 -->
-		{{ $count := (len .Data.Pages) }}
-		{{ range $index, $page := .Data.Pages }}
-			<article class='scribble'>
+		{{ range $page := .Data.Pages }}
+			{{ $name := .File.BaseFileName }}
+			<article id="{{ $name }}" class='scribble'>
+				{{ if .Params.style }}<link rel="stylesheet" type="text/css" href="/scribbles/{{ $name }}/style.css">{{ end }}
 				<div class="meta">
-					<span>Scribble No. {{ sub $count $index }}</span>
+					<span>Scribble No. {{ .Params.seq }}</span>
 					<time>{{ .Date.Format "January 2006" }}</time>
 				</div>
 				 {{ .Content }}
+				{{ if .Params.script }}<script src="/scribbles/{{ $name }}/script.js" charset="utf-8"></script>{{ end }}
 			</article>
 		{{ end }}
 	</div>

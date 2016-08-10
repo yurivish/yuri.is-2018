@@ -213,33 +213,6 @@ main.scribbles { background: #554e65; }
 	overflow: visible;
 }
 
-.scribble svg text {
-	font: 15px/1.0 "Concourse C6";
-	fill: #F6F2FF;
-}
-
-/*svg {background: black;}*/
-#the-artists-of-magic-1 text {
-	fill: #fff;
-	text-shadow: 0 1px 1px #000;
-}
-#the-artists-of-magic-1 text.name{
-	font: 14px/1.0 "Concourse T6";
-	fill: #F6F2FF;
-}
-#the-artists-of-magic-1 text.num {
-	font: 14px/1.0 "Concourse T4";
-	fill: #DED4F7;
-	/*font-style: italic;*/
-}
- #the-artists-of-magic-1 text.num.active  {
-	fill: #DED4F7;
-}
-
-#the-artists-of-magic-1 text.num.active tspan  {
-	fill: #F6F2FF;
-}
-
 article .meta time {
 	float: right;
 }
