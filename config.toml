@@ -1,4 +1,5 @@
 baseurl = "http://yuri.is/"
+RelativeURLs = true
 languageCode = "en-us"
 title = "Yuri Vishnevsky"
 theme = "minimal"

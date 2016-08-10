@@ -7,7 +7,7 @@ seq = 2
 
 +++
 
-The most prolific [Magic](https://en.wikipedia.org/wiki/Magic:_The_Gathering) card artist of all time is [Kev Walker](http://gatherer.wizards.com/Pages/Search/Default.aspx?action=advanced&artist=%5B%22Kev%20Walker%22%5D), with 429 paintings since 1996. The game is over 20 years old, so this is a pretty impressive feat.
+The most prolific [Magic](https://en.wikipedia.org/wiki/Magic:_The_Gathering) artist of all time is [Kev Walker](http://gatherer.wizards.com/Pages/Search/Default.aspx?action=advanced&artist=%5B%22Kev%20Walker%22%5D), with 429 paintings since 1996. The game is over 20 years old, so this is a pretty impressive feat.
 
 The charts below reveal patterns of artistic contribution over time for Magic's top artists.
 
