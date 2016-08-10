@@ -10,11 +10,11 @@
 		</blockquote>
 
 		{{ $count := (len .Data.Pages) }}
-		{{ range $index, $page := .Data.Pages }}
+		{{ range $page := .Data.Pages }}
 			{{ $name := .File.BaseFileName }}
 			<article>
 				<div class="meta">
-					<span>Photo No. {{ sub $count $index }}</span>
+					<span>Photo No. {{ .Params.seq }}</span>
 					<time>{{ .Date.Format "January 2006" }}</time>
 				</div>
 				<h1>{{ .Title }}</h1>
