@@ -18,7 +18,7 @@ The charts below reveal patterns of artistic contribution over time. Card sets a
 
 <svg class='block'>
 		<defs>
-	    <linearGradient id="the-artists-of-magic-g1" x1="0%" y1="0%" x2="0%" y2="100%">
+	    <linearGradient id="the-artists-of-magic-grad" x1="0%" y1="0%" x2="0%" y2="100%">
 	      <stop offset="0%" stop-color="#3CF3FF" />
 	      <stop offset="100%" stop-color="#85B1F5" />
 	    </linearGradient>

@@ -12,15 +12,15 @@ seq = 1
 
 <svg class='top block'>
 	<defs>
-    <linearGradient id="drawing-venn-diagrams-grad-c1" x1="0%" y1="0%" x2="0%" y2="100%">
+    <linearGradient id="venn-diagrams-grad-c1" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" stop-color="#E84D4D" />
       <stop offset="100%" stop-color="#F8A2FF" />
     </linearGradient>
-    <linearGradient id="drawing-venn-diagrams-grad-c2" x1="0%" y1="0%" x2="0%" y2="100%">
+    <linearGradient id="venn-diagrams-grad-c2" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" stop-color="#4D6DE8" />
       <stop offset="100%" stop-color="#A2FFFF" />
     </linearGradient>
-    <linearGradient id="drawing-venn-diagrams-grad-overlap" x1="0%" y1="0%" x2="0%" y2="100%">
+    <linearGradient id="venn-diagrams-grad-overlap" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" stop-color="#FFE21E" />
       <stop offset="100%" stop-color="#E1D46F" />
     </linearGradient>
