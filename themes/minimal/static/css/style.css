@@ -167,6 +167,8 @@ article p {
 
 main.photos { background: #FFD86A; }
 main.scribbles { background: #5A536B; }
+main.scribbles { background: #554e65; }
+
 
 .photos article .meta { color: #654D0A; }
 .scribbles article .meta { color: #A6A1B0; }
@@ -228,11 +230,11 @@ main.scribbles { background: #5A536B; }
 	/*font-style: italic;*/
 }
  #the-artists-of-magic-1 text.num.active  {
-	fill: #F6F2FF;
+	fill: #DED4F7;
 }
 
 #the-artists-of-magic-1 text.num.active tspan  {
-	fill: #DED4F7;
+	fill: #F6F2FF;
 }
 
 article .meta time {

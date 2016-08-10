@@ -112,7 +112,7 @@ function one() {
   let update = (coords) => {
     let x = coords[0], y = coords[1]
     let rect = svg.node().getBoundingClientRect()
-    let ox = rect.left + rect.height/2, oy = rect.top + rect.width/2// origin
+    let ox = rect.left + rect.height/2, oy = rect.top + rect.width/2 // origin
 
     let scale = 0.025
     svg.selectAll('.c2, .overlap')
@@ -121,11 +121,10 @@ function one() {
   }
 
   d3.select('body').on('mousemove.venn', () => {
-    update(d3.mouse(svg.node()))
+    update([d3.event.clientX, d3.event.clientY])  // relative to window, not page
   }).on('touchmove', () => {
     update(d3.touches(svg.node())[0])
   })
-
 }
 
 function two() {
@@ -191,7 +190,6 @@ function two() {
 }
 
 let go = () => {
-  console.log('goo')
   one();
   two();
 }
