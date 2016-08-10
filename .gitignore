@@ -9,5 +9,8 @@ assets
 content/photos/image/*.jpg
 content/photos/image/*.png
 
+# Cardcrafting is computed from assets.
+static/cardcrafting
+
 # Ignore the public folder on master.
 public

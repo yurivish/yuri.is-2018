@@ -88,7 +88,7 @@
 		let svgWidth = svg.node().getBoundingClientRect().width
 
 		// 600 = magic number at which christopher moeller starts to collide with his cards
-		let vpad = 30 // vertical padding for the svg
+		let vpad = 60 // vertical padding for the svg
 		let nx = svgWidth <= 320 ? 1 : (svgWidth <= 600 ? 2 : 3)
 		let ny = Math.ceil(data.length / nx)
 		let gx = d3.scaleBand().domain(d3.range(nx)).rangeRound([0, svgWidth]).paddingInner(nx == 1 ? 0 : 0.2) // work around possible d3 bug? it pads the left when there is 1 column.

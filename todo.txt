@@ -3,6 +3,7 @@
 - sync fish settings
 - highlight color
 - now page (home page?)
+- touch interactions on mtg post
 
 x set latexDashes to false for the markdown renderer
 x consolidate fonts and remove those unused from the css

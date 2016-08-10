@@ -4,6 +4,7 @@
 import yaml
 import glob
 import os
+import shutil
 from subprocess import call, check_output
 
 def resize(inpath, width, outpath, quality='95%'): 
@@ -33,6 +34,8 @@ def main():
 	else:
 		call(['git', 'clone', 'https://github.com/yurivish/assets'], cwd=relpath())
 
+	## Photos
+
 	print('Generating images.')
 
 	# Iterate through all photo posts, then regenerate any missing or outdated images.
@@ -51,6 +54,15 @@ def main():
 
 		generate_if_needed(inpath, outpath_1x, 1)
 		generate_if_needed(inpath, outpath_2x, 2)
+
+	## Cardcrafting
+	print("Copying cardcrafting content.")
+	source = relpath('assets/cardcrafting/static')
+	dest = relpath('static/cardcrafting')
+	if os.path.exists(dest) and os.path.getmtime(dest) < os.path.getmtime(source):
+		shutil.rmtree(dest)
+	if not os.path.exists(dest):
+		shutil.copytree(source, dest) # copy only if needed
 
 	print('Done.')
 
