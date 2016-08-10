@@ -138,7 +138,7 @@ main .inner {
 	margin-top: 1em;
 }
 
-.scribble article h1 a {
+.scribble article h1 a, header h1 a {
 	color: #fff;
 }
 article h1, article h1 a {
@@ -203,7 +203,7 @@ main.scribbles { background: #554e65; }
 	color: #eee6ff;
 }
 
-.scribbles article a:hover {
+.scribbles article a:hover, header h1 a:hover {
 	color: #fff;
 	border-bottom-color: #fff;
 }
@@ -214,11 +214,13 @@ article pre code {
 
 article a {
 	font-family: "Equity Text A";
+}
+a {
 	text-decoration: none;
 	border-bottom: 2px solid transparent;
 }
 
-article a:active {
+article a:active, header h1 a:active {
 	opacity: 0.5;
 }
 
