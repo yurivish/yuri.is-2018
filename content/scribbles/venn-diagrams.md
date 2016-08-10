@@ -1,6 +1,6 @@
 +++
 date = "2016-08-04T15:03:08-04:00"
-title = "Drawing Venn Diagrams"
+title = "drawing venn diagrams"
 draft = true
 +++
 
@@ -27,7 +27,7 @@ Sometimes you want to draw a venn diagram that is _area proportional_, where the
 
 <svg id='drawing-venn-diagrams-2' class='block'></svg>
 
-To draw one you need to know how far apart to position the circles. There's no closed-form expression for the distance, but if you define a function from distance to overlap area then you can optimize over it to approximate the right distance to arbitrary precision.
+To do draw one, you need to know how far apart to position the circles. It turns out that there's no closed-form expression for the distance, but if you define a function from distance to overlap area, you can use it to find the distance you want via an optimization-algorithm version of binary search.
 
 [See the code &raquo;](-)
 

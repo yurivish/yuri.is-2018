@@ -22,6 +22,8 @@ favorite books
 	- envisioning information
 	
 potential posts
+	- publication dates of popular children's books
+	- mtg metagame visualization
 	- mtg color visualization
 	- mtg pixelplacing
 	- map of google autocompletes
