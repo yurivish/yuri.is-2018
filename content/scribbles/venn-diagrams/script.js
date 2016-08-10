@@ -94,7 +94,7 @@
     var svg = d3.select('#' + slug + ' svg.top')
 
     let width = svg.node().getBoundingClientRect().width
-    let height = 300
+    let height = 325
     svg.attr('height', height)
 
     let datum = {
@@ -135,7 +135,7 @@
 
     let spacings = [0.1, 0.25, 0.5, 0.75, 1]
     let x = d3.scaleBand().domain(d3.range(spacings.length))
-      .rangeRound([0, width]).paddingOuter(0).paddingInner(0.25)
+      .rangeRound([0, width]).paddingOuter(0).paddingInner(0.35)
     let strokeWidth = 1.5, r = x.bandwidth() / 2 - strokeWidth
     let height = 5 * r + 20 // +constant for labels 
     svg.attr('height', height)

@@ -7,11 +7,11 @@ seq = 2
 
 +++
 
-The game of [Magic](https://en.wikipedia.org/wiki/Magic:_The_Gathering) is now over 20 years old.
+By the numbers, the most prolific [Magic](https://en.wikipedia.org/wiki/Magic:_The_Gathering) card artist of all time is [Kev Walker](http://gatherer.wizards.com/Pages/Search/Default.aspx?action=advanced&artist=%5B%22Kev%20Walker%22%5D), with 429 paintings since 1996. The game is now over 20 years old, so this is a pretty impressive feat.
 
-By the numbers, the most prolific Magic artist of all time is [Kev Walker](http://gatherer.wizards.com/Pages/Search/Default.aspx?action=advanced&artist=%5B%22Kev%20Walker%22%5D), with 429 paintings beginning with [Mirage](https://en.wikipedia.org/wiki/Mirage_(Magic:_The_Gathering)) in 1996.
+The charts below reveal patterns of artistic contribution over time for some of Magic's top artists. 
 
-The charts below reveal patterns of artistic contribution over time. Card sets are ordered horizontally over time, with card volume shown by height. Hover over a chart to compare individual sets across artists.
+Card sets are ordered horizontally over time, with card volume shown by height. Hover over a chart to compare individual sets across artists.
 
 <svg class='block'>
 		<defs>

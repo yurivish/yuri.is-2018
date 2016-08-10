@@ -186,7 +186,7 @@ main.scribbles { background: #554e65; }
 .scribbles article h1, 
 .scribbles article h1 a, 
 .scribbles article h2, 
-.scribbles article h3 { color: #fff; }
+.scribbles article h3 { font-weight: normal; color: #fff; }
 .scribbles article h1 a { border-bottom-color: transparent; }
 
 .scribbles article em {

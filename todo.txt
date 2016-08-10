@@ -1,15 +1,14 @@
-- set latexDashes to false for the markdown renderer
 - use ace for templates. it's like a nice jade.
-- check out https://www.sublimetext.com/docs/3/projects.html for removiong unwanted files from the project, like public
+- check out https://www.sublimetext.com/docs/3/projects.html for removing unwanted files from the project, like public
 - sync fish settings
 - highlight color
 - now page (home page?)
-- make headings wider than the paragraphs?
-- consolidate fonts and remove those unused from the css
-- use css fonts for fonts
-- figure out the text of the svg labels
-- figure out how to make the svg wider than the page contents so it can spill out
 
+x set latexDashes to false for the markdown renderer
+x consolidate fonts and remove those unused from the css
+x use css fonts for fonts
+x figure out the text of the svg labels
+x figure out how to make the svg wider than the page contents so it can spill out
 x figure out what to do with the quote when small screens
 x regenerate images at 543px wide
 x iphone layout

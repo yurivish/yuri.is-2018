@@ -8,6 +8,7 @@
 
 	function sparkline(update) {
 		let enter = update.enter().append('g').attr('class', 'sparkline')
+		let num = (n, i) => i  == 7 ? n : n + ' cards' // save space for christopher moeller
 
 		// Background rect for mouse events
 		enter.append('rect').attr('class', 'background').attr('fill', 'transparent')
@@ -21,7 +22,7 @@
 			.attr('text-anchor', 'start')
 		// Text for label
 		enter.append('text').attr('class', 'num').style('pointer-events', 'none')
-			.text(d => d.total + ' cards')
+			.text((d, i)=> num(d.total, i))
 			.attr('text-anchor', 'end')
 
 		let both = update.merge(enter)
@@ -54,26 +55,26 @@
 			.attr('width', d => d.width)
 			.attr('height', d => d.height + d.textOffset)
 			.on('mousemove', function(d) {
-				let i = ~~Math.min(d.values.length - 1, d.x.invert(d3.mouse(this)[0]))
+				let index = ~~Math.min(d.values.length - 1, d.x.invert(d3.mouse(this)[0]))
 				trans(both.select('path')).attr('opacity', 0.5)
 				both.select('.num').classed('active', true)
-					.text(d => d.values[i] + ' cards')
+					.text((d, i) => num(d.values[index], i))
 					.attr('x', d => d.width)
 					.append('tspan')
 						.attr('text-anchor', 'right')
 						.attr('x', d.width)
 						.attr('dy', '1.5em')
-						.text(sets[i])
+						.text(sets[index])
 				both.select('rect.hover')
 					.style('display', 'block')
-					.attr('x', d => d.x(i))
-					.attr('y', d => d.height/2 - d.y(d.values[i]))
-					.attr('height', d => 2 * d.y(d.values[i]))
+					.attr('x', d => d.x(index))
+					.attr('y', d => d.height/2 - d.y(d.values[index]))
+					.attr('height', d => 2 * d.y(d.values[index]))
 			}).on('mouseleave', function(d) {
 				trans(both.select('path')).attr('opacity', 1)
 				both.select('.num')
 					.classed('active', false)
-					.text(d => d.total + ' cards')
+					.text((d, i) => num(d.total, i))
 				both.select('rect.hover')
 					.style('display', 'none')
 			}) // We could open Gatherer on click.
@@ -86,9 +87,9 @@
 		let data = allData.slice(0, 12)
 		let svgWidth = svg.node().getBoundingClientRect().width
 
-		// 555 = magic number at which christopher moeller starts to collide with his cards
+		// 600 = magic number at which christopher moeller starts to collide with his cards
 		let vpad = 30 // vertical padding for the svg
-		let nx = svgWidth <= 320 ? 1 : (svgWidth <= 555 ? 2 : 3)
+		let nx = svgWidth <= 320 ? 1 : (svgWidth <= 600 ? 2 : 3)
 		let ny = Math.ceil(data.length / nx)
 		let gx = d3.scaleBand().domain(d3.range(nx)).rangeRound([0, svgWidth]).paddingInner(nx == 1 ? 0 : 0.2) // work around possible d3 bug? it pads the left when there is 1 column.
 		let gy = d3.scaleBand().domain(d3.range(ny)).rangeRound([vpad, ny * (gx.bandwidth() * 0.75)]).paddingInner(0.8)
