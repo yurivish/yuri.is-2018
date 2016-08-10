@@ -5,17 +5,13 @@ draft = true
 
 +++
 
-# Magic Artists
+# The Artists of Magic
 
 The game of [Magic](https://en.wikipedia.org/wiki/Magic:_The_Gathering) is now over 20 years old.
 
-There's a lot of history to explore, and ever since I found a [website](http://mtgjson.com/) offering all of the set and card data in an easy-to-use format I've been having a look around.
+By the numbers, the most prolific Magic artist of all time is [Kev Walker](http://gatherer.wizards.com/Pages/Search/Default.aspx?action=advanced&artist=%5B%22Kev%20Walker%22%5D), with 429 paintings beginning with [Mirage](https://en.wikipedia.org/wiki/Mirage_(Magic:_The_Gathering)) in 1996.
 
-By the numbers, the most prolific Magic artist of all time is [Kev Walker](https://en.wikipedia.org/wiki/Kev_Walker), with 429 paintings starting from [Mirage](https://en.wikipedia.org/wiki/Mirage_(Magic:_The_Gathering)) in 1996.
-
-<svg id='the-artists-of-magic-top' class='block'></svg>
-
-This chart illustrates the volume of Kev Walker's contributions over time -- the x axis has all core sets and expansions with newer sets towards the right.
+The charts below reveal patterns of artistic contribution over time. Card sets are ordered horizontally over time, with card volume shown by height. Hover over a chart to compare individual sets across artists.
 
 <svg id='the-artists-of-magic-1' class='block'>
 		<defs>
@@ -27,3 +23,5 @@ This chart illustrates the volume of Kev Walker's contributions over time -- the
 	  </defs>
 </svg>
 <script src='the-artists-of-magic/script.js'></script>
+
+_Data notes --_ Card counts include reprints. Sets are only core sets and expansions, and not special sets like [Portal](https://en.wikipedia.org/wiki/Portal_(Magic:_The_Gathering)) and [Unglued](https://en.wikipedia.org/wiki/Unglued). Here's the [source data](http://mtgjson.com).

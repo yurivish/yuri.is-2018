@@ -15,7 +15,7 @@ function sparkline(update) {
 	// Path for 'bar chart'
 	enter.append('path').style('pointer-events', 'none').attr('fill', 'url(#the-artists-of-magic-g1)').attr('opacity', 1)
 	// Rect for hover
-	enter.append('rect').attr('class', 'hover').style('pointer-events', 'none').attr('fill', '#fff6ae').style('display', 'none')
+	enter.append('rect').attr('class', 'hover').style('pointer-events', 'none').attr('fill', '#fff').style('display', 'none')
 	// Text for name
 	enter.append('text').attr('class', 'name').style('pointer-events', 'none')
 		.text(d => d.name)
@@ -38,7 +38,7 @@ function sparkline(update) {
 			.y0(d => height/2 - y(d))
 			.y1(d => height/2 + y(d))
 			.curve(d3.curveStepAfter)
-		return area(d.values)
+		return area(d.values.concat([0]))
 	})
 
 	both.select('.name')
@@ -55,7 +55,7 @@ function sparkline(update) {
 		.attr('width', d => d.width)
 		.attr('height', d => d.height + d.textOffset)
 		.on('mousemove', function(d) {
-			let i = Math.round(d.x.invert(d3.mouse(this)[0]))
+			let i = ~~Math.min(d.values.length - 1, d.x.invert(d3.mouse(this)[0]))
 			trans(both.select('path')).attr('opacity', 0.5)
 			both.select('.num').classed('active', true)
 				.text(d => d.values[i] + ' cards')
@@ -82,21 +82,19 @@ function sparkline(update) {
 	return enter
 }
 
-function go2(svg, data, vpad) { // vpad = vertical padding on the svg
+function go2(svg, data) {
 	let svgWidth = svg.node().getBoundingClientRect().width
 
 	// 555 = magic number at which christopher moeller starts to collide with his cards
-	let nx = Math.min(data.length, svgWidth <= 320 ? 1 : (svgWidth <= 555 ? 2 : 3))
+	let vpad = 30 // vertical padding for the svg
+	let nx = svgWidth <= 320 ? 1 : (svgWidth <= 555 ? 2 : 3)
 	let ny = Math.ceil(data.length / nx)
 	let gx = d3.scaleBand().domain(d3.range(nx)).rangeRound([0, svgWidth]).paddingInner(nx == 1 ? 0 : 0.2) // work around possible d3 bug? it pads the left when there is 1 column.
-	let gy = d3.scaleBand().domain(d3.range(ny)).rangeRound([0, ny * (gx.bandwidth() * 0.75)]).paddingInner(ny == 1 ? 0 : 0.8) // same as above.
-
-	console.log(gy.bandwidth(), gy(0))
-	svg.attr('height', 2 * vpad + ny * gy.bandwidth())
+	let gy = d3.scaleBand().domain(d3.range(ny)).rangeRound([vpad, ny * (gx.bandwidth() * 0.75)]).paddingInner(0.8)
 
 	let transform = (d, i) => 'translate(' + [
 		gx(i % nx),
-		vpad + gy(~~(i / nx))
+		gy(~~(i / nx))
 	] + ')'
 
 	data.forEach((d, i) => {
@@ -104,9 +102,11 @@ function go2(svg, data, vpad) { // vpad = vertical padding on the svg
 		d.width = gx.bandwidth()
 		d.height = gy.bandwidth()
 		d.textOffset = d.height * 1.1
-		d.x = d3.scaleLinear().domain([0, d.values.length-1]).range([0, d.width]).clamp(true) // compensate for concatenated zeros
+		d.x = d3.scaleLinear().domain([0, d.values.length]).range([0, d.width]).clamp(true) // compensate for concatenated zeros
 		d.y = d3.scaleLinear().domain([0, d3.max(d.values)]).range([1, d.height/2])
 	})
+
+	svg.attr('height', 2 * vpad + d3.max(gy.range()))
 
 	let update = svg
 		.selectAll('g.sparkline').data(data)
@@ -114,17 +114,11 @@ function go2(svg, data, vpad) { // vpad = vertical padding on the svg
 }
 
 function gooo() {
-	go2(
-		d3.select('#the-artists-of-magic-top'),
-		allData.slice(0, 1),
-		0
-	)
-
-	go2(
-		d3.select('#the-artists-of-magic-1'),
-		allData.slice(1, 10),
-		50
-	)
+	d3.select('#the-artists-of-magic-top .sparkline').attr('transform', 'scale(1.5)')
+		go2(
+			d3.select('#the-artists-of-magic-1'),
+			allData.slice(0, 12)
+		)
 }
 gooo()
 d3.select(window).on('resize.magic-1', gooo)

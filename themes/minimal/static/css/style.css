@@ -188,16 +188,18 @@ main.scribbles { background: #554e65; }
 	font-size: 16px;
 }
 .scribbles article a {
-	font-family: "Equity Caps A";
+	font-family: "Equity Text A";
 	color: #fff07b;
 	color: #fff;
 	color: #eee6ff;
 	/*color: #ffd9ee;*/
 	text-decoration: none;
+	border-bottom: 2px solid #857c9a;
+
 }
 .scribbles article a:hover {
 	color: #fff;
-	border-bottom: 1px solid #fff;
+	border-bottom-color: #fff;
 }
 
 .scribbles article a:active {
@@ -206,6 +208,7 @@ main.scribbles { background: #554e65; }
 
 .scribbles svg.block {
 	display: block;
+	margin: 0 auto;
 	width: 100%;
 	overflow: visible;
 }
