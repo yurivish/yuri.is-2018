@@ -1,14 +1,11 @@
 +++
 date = "2016-08-04T15:03:08-04:00"
-title = "drawing venn diagrams"
-draft = true
+title = "Drawing Venn Diagrams"
 style = true
 script = true
 seq = 1
 
 +++
-
-# Drawing Venn Diagrams
 
 <svg class='top block'>
 	<defs>
@@ -33,7 +30,7 @@ Sometimes you want to draw a venn diagram that is _area proportional_, where the
 
 To do so, you need to know how far apart the circles should be. It turns out that there's no closed-form expression for the distance, but you can define a function from distance to overlap area, then use it find the distance you want via an optimization-algorithm version of binary search.
 
-[See the code &raquo;](-)
+[See the code &raquo;](https://gist.github.com/yurivish/b6d2b883fcee198345436d6b574ae4ee)
 
 <!-- <script src='venn-diagrams/script.js'></script> -->
 

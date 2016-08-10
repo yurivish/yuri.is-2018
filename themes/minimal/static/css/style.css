@@ -138,10 +138,16 @@ main .inner {
 	margin-top: 1em;
 }
 
-article h1 {
+.scribble article h1 a {
+	color: #fff;
+}
+article h1, article h1 a {
 	font-family: "Concourse T7";
 	font-size: 36px;
-	margin-bottom: 1.5em;
+}
+
+article h1 {
+	margin-bottom: 1.35em;
 }
 
 article .meta {
@@ -177,36 +183,46 @@ main.scribbles { background: #554e65; }
 .scribbles article { color: #eee6ff; }
 
 .photos article h1, h2, h3 { color: #000; }
-.scribbles article h1, h2, h3 {color: #fff; }
+.scribbles article h1, 
+.scribbles article h1 a, 
+.scribbles article h2, 
+.scribbles article h3 { color: #fff; }
+.scribbles article h1 a { border-bottom-color: transparent; }
 
 .scribbles article em {
-	color: #fff6ae;
 	font-style: italic;
 	border-radius: 2px;
 }
-.scribbles article pre code {
-	font-size: 16px;
-}
-.scribbles article a {
-	font-family: "Equity Text A";
-	color: #fff07b;
-	color: #fff;
-	color: #eee6ff;
-	/*color: #ffd9ee;*/
-	text-decoration: none;
-	border-bottom: 2px solid #857c9a;
 
+.scribbles article em {
+	color: #fff6ae;
 }
+
+.scribbles article a {
+	border-bottom-color: #857c9a;
+	color: #eee6ff;
+}
+
 .scribbles article a:hover {
 	color: #fff;
 	border-bottom-color: #fff;
 }
 
-.scribbles article a:active {
+article pre code {
+	font-size: 16px;
+}
+
+article a {
+	font-family: "Equity Text A";
+	text-decoration: none;
+	border-bottom: 2px solid transparent;
+}
+
+article a:active {
 	opacity: 0.5;
 }
 
-.scribbles svg.block {
+svg.block {
 	display: block;
 	margin: 0 auto;
 	width: 100%;

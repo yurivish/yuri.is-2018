@@ -1,14 +1,11 @@
 +++
 date = "2016-08-09T19:44:46-04:00"
-title = "the artists of magic"
-draft = true
+title = "The Artists of Magic"
 script = true
 style = true
 seq = 2
 
 +++
-
-# The Artists of Magic
 
 The game of [Magic](https://en.wikipedia.org/wiki/Magic:_The_Gathering) is now over 20 years old.
 
