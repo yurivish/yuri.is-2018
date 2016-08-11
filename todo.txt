@@ -22,6 +22,21 @@ favorite books
 	- envisioning information
 	
 potential posts
+	- outline how my site works. i'll thank myself later...
+		- deploy to netlify via drag-and-drop (y.netlify.com)
+		- nameservers set on isnic point to cloudflare
+		- build_assets.py script builds assets, which are stored in a separate repository
+			- copies photos over and resizes them
+			- copies over cardcrafting
+		- posts set script = true or style = true in order to load a custom css or js
+		- style.css and script.js are stored in a folder with the name of the post inside the content folder, and are therefore copied over verbatim.
+		- each script encapsulates itself in a function and passes in the slug for the post to give a semblance of namespacing
+		- we write in typescript and compile down to javascript
+			- we store both in version control because the cost is low and it makes it future-proof for later -- even without a typescript compiler we can clone & deploy
+				- though this does mean that script.ts and script.js may get out of date
+				- what happens when d3.min.js gets update and old posts break? dependencies not isolated...
+		- posts are numbered via `seq` in the frontmatter
+
 	- publication dates of popular children's books
 	- mtg metagame visualization
 	- mtg color visualization
