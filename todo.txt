@@ -9,7 +9,7 @@ possible to-do
 	- sync fish settings
 	- highlight color
 	- now page (home page?)
-
+	- Note: We could do something a bit cleverer for post lists, and loop over for scripts separately. Then they could be unified and optimized by the downstream server
 x touch interactions on mtg post. 
 	- turns out to work already
 x use tilt for venn diagram interaction on mobile?
