@@ -1,9 +1,9 @@
 +++
 date = "2016-08-04T15:03:08-04:00"
+seq = 1
 title = "Drawing Venn Diagrams"
 style = true
 script = true
-seq = 1
 
 +++
 

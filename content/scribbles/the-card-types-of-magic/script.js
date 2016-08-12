@@ -1,4 +1,5 @@
 /*
+	- todo: remove 'the' from post slug
 	- can call out Legions as the all-creature set
 	- can call out alara as the multicolor set
 	- mention normalization
@@ -14,15 +15,15 @@ let dataset_cumulative = {"Artifact":[{"White":0.0,"Blue":0.0,"Black":0.0,"Red":
 let dataset = dataset_normal
 console.log(Object.keys(dataset))
 let data = dataset.Enchantment
+
 let colors = {
-	White: '#FFFBD5',
-	Blue: '#AAE0FA',
-	Black: '#333',
-	Red: '#F9AA8F',
-	Green: '#9BD3AE',
+	White:     '#FFFBD5',
+	Blue:      '#AAE0FA',
+	Black:     '#333',
+	Red:       '#F9AA8F',
+	Green:     '#9BD3AE',
 	Colorless: '#CBC2BF'
 }
-
 
 function streamgraph(sel, chartWidth, chartHeight) {
 	// console.log(sel.size(), sel.data())
@@ -31,9 +32,9 @@ function streamgraph(sel, chartWidth, chartHeight) {
 		// ['White', 'Black'])//
 			.keys(['White', 'Blue', 'Black', 'Red', 'Green', 'Colorless'])
 
-			.order(d3.stackOrderNone) // key order
+			// .order(d3.stackOrderNone) // key order
 			// .order(d3.stackOrderInsideOut) // good with wiggle
-			// .order(d3.stackOrderAscending)
+			.order(d3.stackOrderAscending)
 			// .order(d3.stackOrderDescending)
 			// .order(d3.stackOrderSilhouette) // symmetric
 
@@ -53,7 +54,7 @@ function streamgraph(sel, chartWidth, chartHeight) {
 			.x((d, i) => x(i))
 			.y0((d, i) => y(d[0]))
 			.y1((d, i) => y(d[1]))
-			.curve(d3.curveBasis) // less realistic, but looks nice.
+			.curve(d3.curveBasis) // less realistic, but looks way nicer.
 
 		let update = d3.select(this).selectAll('path').data(layers)
 		let enter = update.enter()
@@ -66,16 +67,17 @@ function streamgraph(sel, chartWidth, chartHeight) {
 }
 
 function go() {
-	let data = ['Creature']//, 'Instant', 'Sorcery', 'Enchantment']
+	let data = ['Creature', 'Instant', 'Sorcery']//, 'Enchantment']
 		.map(key => dataset[key])
 
 	let svg = d3.select('svg')
-	let width = 2 * svg.node().getBoundingClientRect().width
-	let chartHeight = 200, chartWidth = width
-	let height = chartHeight * 2 * data.length
+	let width = svg.node().getBoundingClientRect().width
+	let chartHeight = 110 * (width/500), chartWidth = width
+	let spacingScale = 1.5
+	let height = chartHeight * spacingScale * data.length
 	svg
 		.attr('width', width)
-		.attr('height', width)
+		.attr('height', height)
 	let update = svg.selectAll('g.chart')
 		.data(data)
 
@@ -84,7 +86,8 @@ function go() {
 		.attr('class', 'chart')
 
 	enter.merge(update)
-		.attr('transform', (d, i) => 'rotate(90) translate(0,-' + (width/4 + height/4) + ')') //translate(0, ' + (chartHeight * 2 * i) + ')')
+		//  'rotate(90) translate(0,-' + (width/4 + height/4) + ')') 
+		.attr('transform', (d, i) => 'translate(0, ' + (chartHeight * spacingScale * i) + ')')
 		.call(streamgraph, width, chartHeight)
 }
 

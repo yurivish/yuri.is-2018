@@ -1,9 +1,9 @@
 +++
 date = "2016-08-09T19:44:46-04:00"
+seq = 2
 title = "The Artists of Magic"
 script = true
 style = true
-seq = 2
 
 +++
 

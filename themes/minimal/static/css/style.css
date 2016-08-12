@@ -144,6 +144,7 @@ main .inner {
 article h1, article h1 a {
 	font-family: "Concourse T7";
 	font-size: 36px;
+	widows: 2;
 }
 
 article h1 {
