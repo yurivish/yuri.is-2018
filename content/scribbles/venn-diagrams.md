@@ -28,6 +28,6 @@ Sometimes you want to draw a venn diagram that is _area proportional_, where the
 
 <svg class='overlaps block'></svg>
 
-To do so, you need to know how far apart the circles should be. It turns out that there's no closed-form expression for it, but you can define a function from distance &#8594; overlap and then find the distance you want via binary search.
+To do so, you need to know how far apart the circles should be. It turns out the distance doesn't have a closed form solution, but you can define a function from distance &#8594; overlap and then find the distance you want via binary search.
 
 [See the code &raquo;](https://gist.github.com/yurivish/b6d2b883fcee198345436d6b574ae4ee)

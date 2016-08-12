@@ -1,10 +1,19 @@
-- use ace for templates. it's like a nice jade.
-- check out https://www.sublimetext.com/docs/3/projects.html for removing unwanted files from the project, like public
-- sync fish settings
-- highlight color
-- now page (home page?)
-- touch interactions on mtg post
+site to-do
+	- favicon
+	- make facebook posts look more appealing. meta tags?
+	- 404 page
 
+possible to-do
+	- use ace for templates. it's like a nice jade.
+	- check out https://www.sublimetext.com/docs/3/projects.html for removing unwanted files from the project, like public
+	- sync fish settings
+	- highlight color
+	- now page (home page?)
+
+x touch interactions on mtg post. 
+	- turns out to work already
+x use tilt for venn diagram interaction on mobile?
+	- just disabled it instead
 x set latexDashes to false for the markdown renderer
 x consolidate fonts and remove those unused from the css
 x use css fonts for fonts
@@ -36,6 +45,8 @@ potential posts
 				- though this does mean that script.ts and script.js may get out of date
 				- what happens when d3.min.js gets update and old posts break? dependencies not isolated...
 		- posts are numbered via `seq` in the frontmatter
+		- NOTE: enforce trailing slashes! svg gradient fills fail otherwise: http://stackoverflow.com/questions/15123953/svg-fill-url-behaving-strangely-in-firefox
+			- we do this by enabling 'pretty urls' in netlify postprocessing.
 
 	- publication dates of popular children's books
 	- mtg metagame visualization

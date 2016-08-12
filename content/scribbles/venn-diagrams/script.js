@@ -117,7 +117,8 @@
         d3.select('body').on('mousemove.venn', function () {
             update([d3.event.clientX, d3.event.clientY]); // relative to window, not page
         }).on('touchmove', function () {
-            update(d3.touches(svg.node())[0]);
+            // actually, this interacts badly with scroll; just have a static post instead.
+            // update(d3.touches(svg.node())[0])
         });
     }
     function two() {
