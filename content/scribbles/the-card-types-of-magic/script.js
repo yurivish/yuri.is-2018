@@ -14,22 +14,32 @@ let dataset_cumulative = {"Artifact":[{"White":0.0,"Blue":0.0,"Black":0.0,"Red":
 let dataset = dataset_normal
 console.log(Object.keys(dataset))
 let data = dataset.Enchantment
-let colors = ['#FFFBD5','#AAE0FA','#333','#F9AA8F','#9BD3AE', '#CBC2BF']
+let colors = {
+	White: '#FFFBD5',
+	Blue: '#AAE0FA',
+	Black: '#333',
+	Red: '#F9AA8F',
+	Green: '#9BD3AE',
+	Colorless: '#CBC2BF'
+}
+
 
 function streamgraph(sel, chartWidth, chartHeight) {
 	// console.log(sel.size(), sel.data())
 	sel.each(function(data) {
 		let stack = d3.stack()
+		// ['White', 'Black'])//
 			.keys(['White', 'Blue', 'Black', 'Red', 'Green', 'Colorless'])
-			// pretty:
-			// .order(d3.stackOrderInsideOut)
-			.order(d3.stackOrderAscending)
-			// .order(d3.stackOrderDescending)
-			// .order(d3.stackOrderSilhouette)
-			// .offset(d3.stackOffsetWiggle)
-			.offset(d3.stackOffsetExpand) // TODO: Use for a relative-proportion view
-			// more accurate:
+
+			.order(d3.stackOrderNone) // key order
+			// .order(d3.stackOrderInsideOut) // good with wiggle
 			// .order(d3.stackOrderAscending)
+			// .order(d3.stackOrderDescending)
+			// .order(d3.stackOrderSilhouette) // symmetric
+
+			.offset(d3.stackOffsetWiggle) // pretty
+			// .offset(d3.stackOffsetExpand) // TODO: Use for a relative-proportion view
+			// .order(d3.stackOrderAscending) // more accurate
 			// .offset(d3.stackOffsetNone)
 		let layers = stack(data)
 		let x = d3.scaleLinear().domain([0, data.length - 1]).range([0, chartWidth])
@@ -48,31 +58,34 @@ function streamgraph(sel, chartWidth, chartHeight) {
 		let update = d3.select(this).selectAll('path').data(layers)
 		let enter = update.enter()
 			.append('path')
-			// .attr('transform', (d, i) => 'translate(0,' + (75 * i) + ')')
-			.style('fill', (d, i) => colors[i])
+			// .attr('transform', (d, i) => 'translate(0,' + (75 * (i-layers.length/4)) + ')')
+			.style('fill', (d, i) => colors[d.key])
 			.on('mousemove', function() { console.log(sets[~~x.invert(d3.mouse(this)[0])]) })
 		update.merge(enter).attr('d', area)
 	})
 }
 
-
 function go() {
+	let data = ['Creature']//, 'Instant', 'Sorcery', 'Enchantment']
+		.map(key => dataset[key])
+
 	let svg = d3.select('svg')
-	let width = svg.node().getBoundingClientRect().width
-	let height = 500
+	let width = 2 * svg.node().getBoundingClientRect().width
+	let chartHeight = 200, chartWidth = width
+	let height = chartHeight * 2 * data.length
 	svg
 		.attr('width', width)
-		.attr('height', height)
+		.attr('height', width)
 	let update = svg.selectAll('g.chart')
-		.data(['Creature', 'Instant', 'Sorcery', 'Enchantment'/**/].map(key => dataset[key]))
+		.data(data)
 
 	let enter = update.enter()
 		.append('g')
 		.attr('class', 'chart')
 
 	enter.merge(update)
-		.attr('transform', (d, i) => 'translate(0, ' + (150 * i) + ')')
-		.call(streamgraph, width, 75)
+		.attr('transform', (d, i) => 'rotate(90) translate(0,-' + (width/4 + height/4) + ')') //translate(0, ' + (chartHeight * 2 * i) + ')')
+		.call(streamgraph, width, chartHeight)
 }
 
 go()

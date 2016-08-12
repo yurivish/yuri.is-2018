@@ -11,7 +11,7 @@ The most prolific [Magic](https://en.wikipedia.org/wiki/Magic:_The_Gathering) ar
 
 The charts below reveal patterns of artistic contribution over time for Magic's top artists.
 
-Card sets are ordered horizontally over time, with card volume shown by height. Hover over a chart to compare individual sets across artists.
+Card sets are ordered horizontally over time, with card volume shown by height. Hover or tap a chart to compare individual sets across artists.
 
 <svg class='block'>
 		<defs>
