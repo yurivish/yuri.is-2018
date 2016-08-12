@@ -72,6 +72,7 @@ function go() {
 
 	let svg = d3.select('svg')
 	let width = svg.node().getBoundingClientRect().width
+	// normalize height to a baseline of 500px wide
 	let chartHeight = 110 * (width/500), chartWidth = width
 	let spacingScale = 1.5
 	let height = chartHeight * spacingScale * data.length
