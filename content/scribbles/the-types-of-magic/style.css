@@ -1,12 +1,35 @@
-#the-types-of-magic g {
-	cursor: pointer;
+/* TODO: Figure out css reuse. These text styles also appear in the magic vis. */
+
+#the-types-of-magic text {
+		text-shadow: 0 1px 1px #000;
 }
 
-#the-types-of-magic g .interact {
+#the-types-of-magic .interact {
+	cursor: pointer;
+	fill: url(#the-types-of-magic-grad);
+	opacity: 0;
 }
-#the-types-of-magic g:hover .interact {
-	fill: rgba(0,0,0,0.25);
+#the-types-of-magic .interact:hover {
+	opacity: 0.25;
 }
-#the-types-of-magic g:active .interact {
-	fill: rgba(0,0,0,0.5);
+#the-types-of-magic .interact:active {
+	opacity: 0.1;
+}
+
+#the-types-of-magic svg text.type {
+	font: 14px/1.0 "Concourse C6";
+	fill: #F6F2FF;
+}
+
+#the-types-of-magic svg text.instructions {
+	font: 14px/1.0 "Concourse T4";
+	fill: #DED4F7;
+}
+
+#the-types-of-magic  svg text.instructions.active  {
+	fill: #DED4F7;
+}
+
+#the-types-of-magic svg text.instructions.active tspan  {
+	fill: #F6F2FF;
 }

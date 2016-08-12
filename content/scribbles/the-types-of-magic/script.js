@@ -1,5 +1,8 @@
 "use strict";
 
+
+// BUG: Toggle does not persist across resizes
+
 /*
 	- todo: remove 'the' from post slug
 	- can call out Legions as the all-creature set
@@ -29,7 +32,7 @@
 		Colorless: '#CBC2BF'
 	}
 
-	function streamgraph(sel, chartWidth, chartHeight, doTransition, stackOffset) {
+	function streamgraph(sel, chartWidth, chartHeight, doTransition, normalizeStack) {
 		sel.each(function(data) {
 			let stack = d3.stack()
 				.keys([
@@ -45,7 +48,7 @@
 				.order(d3.stackOrderAscending)
 				// .order(d3.stackOrderDescending)
 				// .order(d3.stackOrderSilhouette) // symmetric
-				.offset(stackOffset)
+				.offset(normalizeStack ? d3.stackOffsetWiggle : d3.stackOffsetExpand)
 				// .offset(d3.stackOffsetWiggle) // pretty
 				// .offset(d3.stackOffsetExpand) // TODO: Use for a relative-proportion view
 				// .order(d3.stackOrderAscending) // more accurate
@@ -70,7 +73,6 @@
 				.style('pointer-events', 'none')
 				.style('stroke', d => 'rgba(0,0,0,0.4)')
 
-
 			let both = update.merge(enter)
 				// Note: We're pointer-events none now...
 				// .on('mousemove', function() {
@@ -85,81 +87,92 @@
 	}
 
 	function go() {
-		let data = [
-			// the first svg gets all the things.
-			['Creature', 'Instant', 'Sorcery', 'Enchantment', 'Planeswalker', 'Artifact']
-				.map(key => dataset[key])
-		]
+		// note: figure out code reuse
+		let randomID = () => [
+		  'id',
+		  (Math.random() * 1000000000).toString(36),
+		  (+new Date()).toString(36)
+		].join('-')
 
-		d3.select('#' + slug).selectAll('svg').data(data).each(function(data) {
-			let svg = d3.select(this)
-			let width = svg.node().getBoundingClientRect().width
-			// normalize height to a baseline width of 500px
-			let chartWidth = width, chartHeight = 100 * (chartWidth/500)
-			let spacingScale = 1.5
-			let height = chartHeight * spacingScale * (0.6 + data.length)
-			svg
-				.attr('width', width)
-				.attr('height', height)
-			let update = svg.selectAll('g.chart')
-				.data(data)
+		let keys = ['Creature', 'Instant', 'Sorcery', 'Enchantment', 'Planeswalker', 'Artifact']
+		let plurals = ['Creatures', 'Instants', 'Sorceries', 'Enchantments', 'Planeswalkers', 'Artifacts']
+		let data = keys.map(key => dataset[key])
+		let svg = d3.select('#' + slug).select('svg')
+		let width = svg.node().getBoundingClientRect().width
+		// normalize height to a baseline width of 500px
+		let chartWidth = width, chartHeight = 100 * (chartWidth/500)
+		let spacingScale = 1.75
+		let height = chartHeight * spacingScale * (0.6 + data.length)
+		svg
+			.attr('width', width)
+			.attr('height', height)
 
-			let toggle = false
+		let toggle = false
+		var clipID = randomID();
+		let update = svg.selectAll('g.chart').data(data)
+		let enter = update.enter().append('g').attr('class', 'chart')
 
-			// note: figure out code reuse
-			let randomID = () => [
-			  'id',
-			  (Math.random() * 1000000000).toString(36),
-			  (+new Date()).toString(36)
-			].join('-')
-
-			var clipID = randomID();
-
-			let denter = update.enter()
-				.append('g')
-				.attr('class', 'chart')
-
-
-			let enter = denter.append('g').attr('class', 'streamgraph')
-				.attr('clip-path', 'url(#' + clipID + ')')
-
-			denter.append('text')
-				.text('Foo foo.')
-				.attr('x', 100)
-				.attr('y', (d, i) => i *50)
-				.attr('fill', 'white')
-				
-			let both = enter.merge(update)
-
-			enter.append('clipPath').attr('id', clipID).append('rect')
+		enter.append('clipPath')
+			.attr('id', clipID)
+			.append('rect')
 				.attr('rx', '5')
 				.attr('ry', '5')
 
-			both.select('clipPath').select('rect')
-				.attr('width', chartWidth)
-				.attr('height', chartHeight)
+		enter.append('g')
+			.attr('class', 'streamgraph')
+			.attr('clip-path', 'url(#' + clipID + ')')
 
-			both.select('.interact')
-				.attr('width', chartWidth)
-				.attr('height', chartHeight)
+		enter.append('rect')
+			.attr('class', 'interact')
+			.attr('clip-path', 'url(#' + clipID + ')')
+			.attr('fill', 'transparent')
+			.attr('width', chartWidth)
+			.attr('height', chartHeight)
 
-			both
-				.attr('transform', (d, i) => 'translate(0, ' + (0.5 * (chartHeight * spacingScale) + (chartHeight * spacingScale * i)) + ')')
-				.call(streamgraph, width, chartHeight, false, toggle ? d3.stackOffsetWiggle : d3.stackOffsetExpand)
-				.on('click', () => {
-					toggle = !toggle
-					both.call(streamgraph, width, chartHeight, true, toggle ? d3.stackOffsetWiggle : d3.stackOffsetExpand)
-				})
+		enter.append('text')
+			.attr('class', 'type')
+			.style('alignment-baseline','text-before-edge') // position by top
 
-			// Enter these after initializing the streamgraph, so
-			// it shows up above.
-			enter.append('rect').attr('class', 'interact')
-				.attr('width', chartWidth)
-				.attr('height', chartHeight)
-				.attr('fill', 'transparent')
+		enter.append('text')
+			.attr('class', 'instructions')
+			.style('text-anchor', 'end')
+			.style('alignment-baseline','text-before-edge') // position by top
 
+		let both = enter.merge(update)
 
-		})
+		both.select('clipPath').select('rect')
+			.attr('width', chartWidth)
+			.attr('height', chartHeight)
+
+		both.select('.interact')
+			.attr('width', chartWidth)
+			.attr('height', chartHeight + 20)
+
+		both.select('text.type')
+			.text((d, i) => plurals[i] + (i == 0 ? ' over time' : ''))
+			.attr('y', chartHeight + 7.5)
+
+		both.select('text.instructions')
+			.attr('x', chartWidth)
+			.attr('y', chartHeight + 7.5)
+
+		let render = (doTransition) => {
+			both.select('text.instructions') // todo: tappable instrux
+				.text(toggle ? 'Absolute card counts' : 'Relative card counts')
+			both.select('.streamgraph')
+				.call(streamgraph, width, chartHeight, doTransition, toggle)
+		}
+
+		both
+			.attr('transform', (d, i) => 'translate(0, ' + (0.5 * (chartHeight * spacingScale) + (chartHeight * spacingScale * i)) + ')')
+
+		render(false)
+
+		both.select('.interact')
+			.on('click', () => {
+				toggle = !toggle
+				render(true)
+			})
 	}
 
 	go(true)
