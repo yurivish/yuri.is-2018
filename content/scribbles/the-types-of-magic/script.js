@@ -22,10 +22,10 @@
 
 	let colors = {
 		White:     '#FFFBD5',
-		Blue:      '#AAE0FA',
+		Blue:      '#9CDFFF', //'#AAE0FA',
 		Black:     'rgb(45,45,45)',
-		Red:       '#F9AA8F',
-		Green:     '#9BD3AE',
+		Red:       '#F78D68', //'#F9AA8F',
+		Green:     '#81D09C', //'#9BD3AE',
 		Colorless: '#CBC2BF'
 	}
 
@@ -68,11 +68,14 @@
 			let enter = update.enter()
 				.append('path')
 				.style('pointer-events', 'none')
-				// .attr('transform', (d, i) => 'translate(0,' + (75 * (i-layers.length/4)) + ')')
-				.style('stroke', d => 'rgba(0,0,0,0.3)')
+				.style('stroke', d => 'rgba(0,0,0,0.4)')
+
 
 			let both = update.merge(enter)
-				.on('mousemove', function() { console.log(sets[~~x.invert(d3.mouse(this)[0])]) })
+				// Note: We're pointer-events none now...
+				// .on('mousemove', function() {
+				// 	console.log(sets[~~x.invert(d3.mouse(this)[0])])
+				// })
 			
 			let trans = doTransition ? both.transition().duration(600) : both
 			trans
@@ -82,68 +85,84 @@
 	}
 
 	function go() {
-		let data = ['Creature', 'Instant', 'Sorcery', 'Enchantment', 'Planeswalker', 'Artifact']
-			.map(key => dataset[key])
+		let data = [
+			// the first svg gets all the things.
+			['Creature', 'Instant', 'Sorcery', 'Enchantment', 'Planeswalker', 'Artifact']
+				.map(key => dataset[key])
+		]
 
-		let svg = d3.select('#' + slug + ' svg')
-		let width = svg.node().getBoundingClientRect().width
-		// normalize height to a baseline of 500px wide
-		let chartWidth = width, chartHeight = 75 * (chartWidth/500)
-		let spacingScale = 1.5
-		let height = chartHeight * spacingScale * (0.6 + data.length)
-		svg
-			.attr('width', width)
-			.attr('height', height)
-		let update = svg.selectAll('g.chart')
-			.data(data)
+		d3.select('#' + slug).selectAll('svg').data(data).each(function(data) {
+			let svg = d3.select(this)
+			let width = svg.node().getBoundingClientRect().width
+			// normalize height to a baseline width of 500px
+			let chartWidth = width, chartHeight = 100 * (chartWidth/500)
+			let spacingScale = 1.5
+			let height = chartHeight * spacingScale * (0.6 + data.length)
+			svg
+				.attr('width', width)
+				.attr('height', height)
+			let update = svg.selectAll('g.chart')
+				.data(data)
 
-		let toggle = false
+			let toggle = false
 
-		// note: figure out code reuse
-		let randomID = () => [
-		  'id',
-		  (Math.random() * 1000000000).toString(36),
-		  (+new Date()).toString(36)
-		].join('-')
+			// note: figure out code reuse
+			let randomID = () => [
+			  'id',
+			  (Math.random() * 1000000000).toString(36),
+			  (+new Date()).toString(36)
+			].join('-')
 
-		var clipID = randomID();
+			var clipID = randomID();
 
-		let enter = update.enter()
-			.append('g')
-			.attr('class', 'chart')
-			.attr('clip-path', 'url(#' + clipID + ')')
+			let denter = update.enter()
+				.append('g')
+				.attr('class', 'chart')
 
-		let both = enter.merge(update)
 
-		enter.append('clipPath').attr('id', clipID).append('rect')
-			.attr('rx', '5')
-			.attr('ry', '5')
+			let enter = denter.append('g').attr('class', 'streamgraph')
+				.attr('clip-path', 'url(#' + clipID + ')')
 
-		both.select('clipPath').select('rect')
-			.attr('width', chartWidth)
-			.attr('height', chartHeight)
+			denter.append('text')
+				.text('Foo foo.')
+				.attr('x', 100)
+				.attr('y', (d, i) => i *50)
+				.attr('fill', 'white')
+				
+			let both = enter.merge(update)
 
-		both.select('.interact')
-			.attr('width', chartWidth)
-			.attr('height', chartHeight)
+			enter.append('clipPath').attr('id', clipID).append('rect')
+				.attr('rx', '5')
+				.attr('ry', '5')
 
-		both
-			.attr('transform', (d, i) => 'translate(0, ' + (0.5 * (chartHeight * spacingScale) + (chartHeight * spacingScale * i)) + ')')
-			.call(streamgraph, width, chartHeight, false, toggle ? d3.stackOffsetWiggle : d3.stackOffsetExpand)
-			.on('click', () => {
-				toggle = !toggle
-				both.call(streamgraph, width, chartHeight, true, toggle ? d3.stackOffsetWiggle : d3.stackOffsetExpand)
-			})
+			both.select('clipPath').select('rect')
+				.attr('width', chartWidth)
+				.attr('height', chartHeight)
 
-		// Enter these after initializing the streamgraph, so
-		// it shows up above.
-		enter.append('rect').attr('class', 'interact')
-			.attr('width', chartWidth)
-			.attr('height', chartHeight)
-			.attr('fill', 'transparent')
-			
+			both.select('.interact')
+				.attr('width', chartWidth)
+				.attr('height', chartHeight)
+
+			both
+				.attr('transform', (d, i) => 'translate(0, ' + (0.5 * (chartHeight * spacingScale) + (chartHeight * spacingScale * i)) + ')')
+				.call(streamgraph, width, chartHeight, false, toggle ? d3.stackOffsetWiggle : d3.stackOffsetExpand)
+				.on('click', () => {
+					toggle = !toggle
+					both.call(streamgraph, width, chartHeight, true, toggle ? d3.stackOffsetWiggle : d3.stackOffsetExpand)
+				})
+
+			// Enter these after initializing the streamgraph, so
+			// it shows up above.
+			enter.append('rect').attr('class', 'interact')
+				.attr('width', chartWidth)
+				.attr('height', chartHeight)
+				.attr('fill', 'transparent')
+
+
+		})
 	}
 
 	go(true)
 	d3.select(window).on('resize.' + slug, go)
+
 })('the-types-of-magic') // TODO: Get this from the script url?
