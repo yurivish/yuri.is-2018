@@ -4,6 +4,7 @@
 	<div class="inner">
 		{{ range .Data.Pages }}
 			{{ partial "scribble.html" . }}
+			<!-- Note: We could do something a bit cleverer, and loop over for scripts separately. Then they could be unified and optimized by the downstream server. -->
 		{{ end }}
 	</div>
 </main>

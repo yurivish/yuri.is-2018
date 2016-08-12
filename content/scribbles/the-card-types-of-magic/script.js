@@ -19,26 +19,30 @@ let data = dataset.Enchantment
 let colors = {
 	White:     '#FFFBD5',
 	Blue:      '#AAE0FA',
-	Black:     '#333',
+	Black:     'rgb(45,45,45)',
 	Red:       '#F9AA8F',
 	Green:     '#9BD3AE',
 	Colorless: '#CBC2BF'
 }
 
-function streamgraph(sel, chartWidth, chartHeight) {
-	// console.log(sel.size(), sel.data())
+function streamgraph(sel, chartWidth, chartHeight, stackOffset) {
 	sel.each(function(data) {
 		let stack = d3.stack()
-		// ['White', 'Black'])//
-			.keys(['White', 'Blue', 'Black', 'Red', 'Green', 'Colorless'])
-
+			.keys([
+				'Blue',
+				'Colorless',
+				'Green',
+				'White',
+				'Red',
+				'Black', 
+			 ])
 			// .order(d3.stackOrderNone) // key order
 			// .order(d3.stackOrderInsideOut) // good with wiggle
 			.order(d3.stackOrderAscending)
 			// .order(d3.stackOrderDescending)
 			// .order(d3.stackOrderSilhouette) // symmetric
-
-			.offset(d3.stackOffsetWiggle) // pretty
+			.offset(stackOffset)
+			// .offset(d3.stackOffsetWiggle) // pretty
 			// .offset(d3.stackOffsetExpand) // TODO: Use for a relative-proportion view
 			// .order(d3.stackOrderAscending) // more accurate
 			// .offset(d3.stackOffsetNone)
@@ -59,37 +63,78 @@ function streamgraph(sel, chartWidth, chartHeight) {
 		let update = d3.select(this).selectAll('path').data(layers)
 		let enter = update.enter()
 			.append('path')
+			.style('pointer-events', 'none')
 			// .attr('transform', (d, i) => 'translate(0,' + (75 * (i-layers.length/4)) + ')')
-			.style('fill', (d, i) => colors[d.key])
+			.style('stroke', d => 'rgba(0,0,0,0.3)')
+		update.merge(enter)
 			.on('mousemove', function() { console.log(sets[~~x.invert(d3.mouse(this)[0])]) })
-		update.merge(enter).attr('d', area)
+			.transition().attr('d', area) // note: this transitions width on resize, too...
+			.style('fill', (d, i) => colors[d.key])
 	})
 }
 
 function go() {
-	let data = ['Creature', 'Instant', 'Sorcery']//, 'Enchantment']
+	let data = ['Creature', 'Instant']//, 'Sorcery', 'Enchantment']
 		.map(key => dataset[key])
 
 	let svg = d3.select('svg')
 	let width = svg.node().getBoundingClientRect().width
 	// normalize height to a baseline of 500px wide
-	let chartHeight = 110 * (width/500), chartWidth = width
-	let spacingScale = 1.5
-	let height = chartHeight * spacingScale * data.length
+	let chartWidth = width, chartHeight = 75 * (chartWidth/500)
+	let spacingScale = 2.5
+	let height = chartHeight * spacingScale * (0.6 + data.length)
 	svg
 		.attr('width', width)
 		.attr('height', height)
 	let update = svg.selectAll('g.chart')
 		.data(data)
 
+	let toggle = false
+
+	// note: figure out code reuse
+	let randomID = () => [
+	  'id',
+	  (Math.random() * 1000000000).toString(36),
+	  (+new Date()).toString(36)
+	].join('-')
+
+	var clipID = randomID();
+
 	let enter = update.enter()
 		.append('g')
 		.attr('class', 'chart')
+		.attr('clip-path', 'url(#' + clipID + ')')
 
-	enter.merge(update)
+	let both = enter.merge(update)
+
+	enter.append('clipPath').attr('id', clipID)
+		.append('rect')
+		.attr('width', chartWidth)
+		.attr('height', chartHeight)
+		.attr('rx', '5')
+		.attr('ry', '5')
+
+	both.select('.interact')
+		.attr('width', chartWidth)
+		.attr('height', chartHeight)
+
+	both
 		//  'rotate(90) translate(0,-' + (width/4 + height/4) + ')') 
-		.attr('transform', (d, i) => 'translate(0, ' + (chartHeight * spacingScale * i) + ')')
-		.call(streamgraph, width, chartHeight)
+		.attr('transform', (d, i) => 'translate(0, ' + (0.5 * (chartHeight * spacingScale) + (chartHeight * spacingScale * i)) + ')')
+		.call(streamgraph, width, chartHeight, toggle ? d3.stackOffsetWiggle : d3.stackOffsetExpand)
+	
+	// Enter these after initializing the streamgraph, so
+	// it shows up above.
+	enter.append('rect').attr('class', 'interact')
+		.attr('width', chartWidth)
+		.attr('height', chartHeight)
+		.attr('fill', 'transparent')
+		.on('click', () => {
+			toggle = !toggle
+			both.call(streamgraph, width, chartHeight, toggle ? d3.stackOffsetWiggle : d3.stackOffsetExpand)
+			// d3.event.preventDefault()
+			// d3.event.stopPropagation()
+		})
 }
 
 go()
