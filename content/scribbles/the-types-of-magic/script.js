@@ -64,7 +64,7 @@
             .attr('height', height);
         var render = function (doTransition) {
             both.select('text.description')
-                .text(relativeProportions ? 'Relative color proportions over time' : 'Absolute color proportions over time');
+                .text(relativeProportions ? 'Relative colors over time' : 'Absolute colors over time');
             both.select('.streamgraph')
                 .call(streamgraph, chartWidth, chartHeight, doTransition, relativeProportions);
         };
