@@ -11,7 +11,7 @@ The most prolific [Magic](https://en.wikipedia.org/wiki/Magic:_The_Gathering) ar
 
 How does that look over time?
 
-The charts below reveal patterns of artistic contribution over time for Magic's top artists. Card sets are ordered horizontally over time, with card volume shown by height. Hover over a chart to compare sets across artists.
+The charts below reveal patterns of artistic contribution for Magic's top artists. Card sets are ordered horizontally over time, with card volume shown by height. Hover over a chart to compare sets across artists.
 
 <svg class='block'>
 		<defs>
