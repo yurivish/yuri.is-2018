@@ -7,6 +7,9 @@ declare var d3: any;
   // simple bisection search to find the distance that leads to an overlap
   // area within epsilon of the desired overlap.
   let distanceForOverlapArea = (r1, r2, desiredOverlap) => {
+    // Ensure r1 <= r2
+    if (r1 > r2) { let temp = r2; r2 = r1; r1 = temp; }
+
     // Use a small epsilon for subpixel precision
     let eps = 0.075; 
 
@@ -34,7 +37,8 @@ declare var d3: any;
   function overlapArea(r1, r2, dist) {
     // Calculate the area in the overlap of two circles with
     // radii `r1` and `r2` that are `dist` distance apart.
- 
+    // Assumes `r1` <= `r2`.
+
     // A utility squaring function
     let sq = x => x * x
 
@@ -50,12 +54,12 @@ declare var d3: any;
     let beta  = 2 * Math.acos((sq(dist) + sq(r2) - sq(r1)) / (2 * r2 * dist))
     return 0.5 * (sq(r1) * (alpha - Math.sin(alpha)) + sq(r2) * (beta - Math.sin(beta)))
   };
-//
-//  let randomID = () => [
-//    'id',
-//    (Math.random() * 1000000000).toString(36),
-//    (+new Date()).toString(36)
-//  ].join('-')
+
+ let randomID = () => [
+   'id',
+   (Math.random() * 1000000000).toString(36),
+   (+new Date()).toString(36)
+ ].join('-')
 
   let sign = function(x) { // Math.sign 'polyfill' from Mozilla
     x = +x; // convert to a number
@@ -160,6 +164,8 @@ declare var d3: any;
         angle: -0.5*Math.PI
       }
     });
+
+    data.forEach(d => console.log(d.distance))
 
     let enter = venn(svg.selectAll('g.venn').data(data))
 

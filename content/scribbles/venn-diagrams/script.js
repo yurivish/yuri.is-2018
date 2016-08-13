@@ -4,6 +4,12 @@
     // simple bisection search to find the distance that leads to an overlap
     // area within epsilon of the desired overlap.
     var distanceForOverlapArea = function (r1, r2, desiredOverlap) {
+        // Ensure r1 <= r2
+        if (r1 > r2) {
+            var temp = r2;
+            r2 = r1;
+            r1 = temp;
+        }
         // Use a small epsilon for subpixel precision
         var eps = 0.075;
         // Set up initial values for our search space
@@ -29,6 +35,7 @@
     function overlapArea(r1, r2, dist) {
         // Calculate the area in the overlap of two circles with
         // radii `r1` and `r2` that are `dist` distance apart.
+        // Assumes `r1` <= `r2`.
         // A utility squaring function
         var sq = function (x) { return x * x; };
         // If one circle is inside the other, return the size of the smaller.
@@ -139,6 +146,7 @@
                 angle: -0.5 * Math.PI
             };
         });
+        data.forEach(function (d) { return console.log(d.distance); });
         var enter = venn(svg.selectAll('g.venn').data(data));
         var g = svg.selectAll('g.venn')
             .attr('transform', function (d, i) { return 'translate(' + (x(i) + r + strokeWidth) + ', ' + (2 * r) + ')'; });
