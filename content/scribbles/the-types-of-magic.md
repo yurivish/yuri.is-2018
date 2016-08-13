@@ -27,13 +27,13 @@ Colors in each chart are ordered by size, illustrating that every card type is m
 
 If you know your Magic history there are some fun things to note:
 
-1. Enchantments hit a peak during [Theros block](http://mtgsalvation.gamepedia.com/Theros_block) which introduced enchantment creatures and enchantment artifacts.
+1. Enchantments hit a peak during [Theros block](http://mtgsalvation.gamepedia.com/Theros_block), which introduced enchantment creatures and enchantment artifacts.
 
-1. Even though Planeswalker cards weren't introduced until Lorwyn, they were first foreshadowed in Future Sight on the reminder text for [Tarmogoyf](http://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=136142).
+1. Even though Planeswalker cards weren't introduced until Lorwyn, they were foreshadowed on the reminder text for [Tarmogoyf](http://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=136142).
 
-1. Dips in the chart happen when cards drop to zero, such as in 2003, when the all-creature set [Legions](https://en.wikipedia.org/wiki/Onslaught_(Magic:_The_Gathering)#Legions_2) was released.
+1. Dips in the chart happen when cards drop to zero, such as in 2003, when the all-creature set [Legions](http://mtgsalvation.gamepedia.com/Legions) was released.
 
-1. There are three sets without artifacts: Torment, Legions, and Planar Chaos.
+1. There are three sets without artifacts: [Torment](http://mtgsalvation.gamepedia.com/Torment), [Legions](http://mtgsalvation.gamepedia.com/Legions), and [Planar Chaos](http://mtgsalvation.gamepedia.com/Planar_Chaos).
 
 1. Mirrodin block has lots artifacts, but they're all creatures (or lands) since colorless spells weren't invented yet.
 

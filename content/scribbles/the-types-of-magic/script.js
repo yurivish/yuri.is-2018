@@ -50,6 +50,11 @@
             (Math.random() * 1000000000).toString(36),
             (+new Date()).toString(36)
         ].join('-'); };
+        var toggle = function () {
+            relativeProportions = !relativeProportions;
+            render(true);
+            d3.event.preventDefault();
+        };
         var keys = ['Creature', 'Instant', 'Enchantment', 'Sorcery', 'Planeswalker', 'Artifact'];
         var plurals = ['Creatures', 'Instants', 'Enchantments', 'Sorceries', 'Planeswalkers', 'Artifacts'];
         var data = keys.map(function (key) { return dataset[key]; });
@@ -87,7 +92,8 @@
         enter.append('text')
             .attr('class', 'description')
             .style('alignment-baseline', 'central')
-            .style('text-anchor', 'end');
+            .style('text-anchor', 'end')
+            .on('click', toggle);
         enter.append('text')
             .attr('class', 'time-start')
             .style('alignment-baseline', 'central')

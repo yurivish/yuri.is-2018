@@ -53,6 +53,7 @@ declare let d3: any;
 	// visualization type across re-renders
 	let relativeProportions = true
 
+
 	function go() {
 		// todo: figure out code reuse
 		let randomID = () => [
@@ -60,6 +61,12 @@ declare let d3: any;
 		  (Math.random() * 1000000000).toString(36),
 		  (+new Date()).toString(36)
 		].join('-')
+
+		let toggle = () => {
+		    relativeProportions = !relativeProportions;
+		    render(true);
+		    d3.event.preventDefault();
+		}
 
 		let keys = ['Creature', 'Instant', 'Enchantment', 'Sorcery', 'Planeswalker', 'Artifact']
 		let plurals = ['Creatures', 'Instants', 'Enchantments', 'Sorceries', 'Planeswalkers', 'Artifacts']
@@ -105,6 +112,7 @@ declare let d3: any;
 			.attr('class', 'description')
 			.style('alignment-baseline','central')
 			.style('text-anchor', 'end')
+			.on('click', toggle)
 
 		enter.append('text')
 			.attr('class', 'time-start')
