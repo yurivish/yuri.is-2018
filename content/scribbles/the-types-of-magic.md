@@ -17,7 +17,7 @@ Colors are the standard Magic fare:
 <img class='mana-legend' src='{{< relpath "G.svg" >}}' title='Green' />,
 <img class='mana-legend' src='{{< relpath "1.svg" >}}' title='Colorless' />.
 
-<a href='#' class='toggle'>Click here</a> to toggle between relative and absolute charts.
+<a href='#' class='toggle'>Click here</a> to toggle between relative and absolute color charts.
 
 <svg class='block'>
 	<defs><linearGradient id="the-types-of-magic-grad" x1="0" y1="0" x2="0" y2="100%"><stop offset="0" stop-color="#fff" stop-opacity="1"/><stop offset="100%" stop-color="#fff" stop-opacity="0.75"/></linearGradient>
