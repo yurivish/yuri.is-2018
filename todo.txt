@@ -1,4 +1,5 @@
 site to-do
+	- http://www.typescriptlang.org/docs/handbook/tsconfig-json.html
 	- facebook descriptions
 	- favicon
 	- 404 page
