@@ -25,6 +25,6 @@ Colors are the standard Magic fare:
 
 The colors are sorted by size, showing how each card type has a characteristic color -- creatures in <img class='mana-mini' src='{{< relpath "G.svg" >}}' title='Green' />, instants in <img class='mana-mini' src='{{< relpath "U.svg" >}}' title='Blue' />, enchantments in <img class='mana-mini' src='{{< relpath "W.svg" >}}' title='White' />, and sorceries in <img class='mana-mini' src='{{< relpath "B.svg" >}}' title='Black' />.
 
-Dips in the chart happen when cards types drop to zero, such as in 2003, when the all-creature set [Legions](http://mtgsalvation.gamepedia.com/Legions) was released.
+Dips in the chart happen when card types drop to zero, such as in 2003, when the all-creature set [Legions](http://mtgsalvation.gamepedia.com/Legions) was released.
 
 _Data notes --_ All card counts are normalized by set size and adjusted for cards with multiple colors and types. Here's where I got the [mana symbols](http://mtgsalvation.gamepedia.com/Category:Mana_symbols) and [source data](http://mtgjson.com).
