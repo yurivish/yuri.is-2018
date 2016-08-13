@@ -24,7 +24,7 @@ script = true
   </defs>
 </svg>
 
-Sometimes you want to draw a venn diagram that is _area proportional_, where the overlap between two circles accurately represents the overlap between two sets. 
+Sometimes you want to draw an _area proportional_ venn diagram, where the overlap between two circles accurately represents the overlap between two sets. 
 
 <svg class='overlaps block'></svg>
 
