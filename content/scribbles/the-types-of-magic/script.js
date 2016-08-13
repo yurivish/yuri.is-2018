@@ -50,11 +50,6 @@
             (Math.random() * 1000000000).toString(36),
             (+new Date()).toString(36)
         ].join('-'); };
-        var toggle = function () {
-            relativeProportions = !relativeProportions;
-            render(true);
-            d3.event.preventDefault();
-        };
         var keys = ['Creature', 'Instant', 'Enchantment', 'Sorcery', 'Planeswalker', 'Artifact'];
         var plurals = ['Creatures', 'Instants', 'Enchantments', 'Sorceries', 'Planeswalkers', 'Artifacts'];
         var data = keys.map(function (key) { return dataset[key]; });
@@ -67,6 +62,17 @@
         svg
             .attr('width', width)
             .attr('height', height);
+        var render = function (doTransition) {
+            both.select('text.description')
+                .text(relativeProportions ? 'Relative color proportions over time' : 'Absolute color proportions over time');
+            both.select('.streamgraph')
+                .call(streamgraph, chartWidth, chartHeight, doTransition, relativeProportions);
+        };
+        var toggle = function () {
+            relativeProportions = !relativeProportions;
+            render(true);
+            d3.event.preventDefault();
+        };
         var clipID = randomID();
         var update = svg.selectAll('g.chart').data(data);
         var enter = update.enter().append('g').attr('class', 'chart');
@@ -83,17 +89,14 @@
             .attr('class', 'interact')
             .attr('opacity', 0)
             .attr('clip-path', 'url(#' + clipID + ')')
-            .attr('fill', 'url(#' + slug + '-grad)')
-            .attr('width', chartWidth)
-            .attr('height', chartHeight);
+            .attr('fill', 'url(#' + slug + '-grad)');
         enter.append('text')
             .attr('class', 'type')
             .style('alignment-baseline', 'central');
         enter.append('text')
             .attr('class', 'description')
             .style('alignment-baseline', 'central')
-            .style('text-anchor', 'end')
-            .on('click', toggle);
+            .style('text-anchor', 'end');
         enter.append('text')
             .attr('class', 'time-start')
             .style('alignment-baseline', 'central')
@@ -133,7 +136,8 @@
             .attr('height', chartHeight);
         both.select('text.type')
             .text(function (d, i) { return plurals[i]; })
-            .attr('y', titleOffset);
+            .attr('y', titleOffset)
+            .on('click', toggle);
         both.select('text.description')
             .attr('x', chartWidth)
             .attr('y', titleOffset);
@@ -145,12 +149,6 @@
         both.select('text.time-end')
             .attr('x', chartWidth)
             .attr('y', chartHeight + axisOffset);
-        var render = function (doTransition) {
-            both.select('text.description')
-                .text(relativeProportions ? 'Relative color proportions over time' : 'Absolute color proportions over time');
-            both.select('.streamgraph')
-                .call(streamgraph, width, chartHeight, doTransition, relativeProportions);
-        };
         both
             .attr('transform', function (d, i) { return 'translate(0, ' + (chartHeight * spacingScale * (i + 0.25)) + ')'; });
         render(false);
@@ -170,11 +168,7 @@
             trans(both.select('.hover-line')).attr('opacity', 0);
             svg.selectAll('.set-name').text('');
         });
-        d3.select('#' + slug).select('.toggle').on('click', function () {
-            relativeProportions = !relativeProportions;
-            render(true);
-            d3.event.preventDefault();
-        });
+        d3.select('#' + slug).select('.toggle').on('click', toggle);
     }
     go();
     d3.select(window).on('resize.' + slug, go);
