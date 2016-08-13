@@ -4,6 +4,7 @@ seq = 1
 title = "Drawing Venn Diagrams"
 style = true
 script = true
+description = "Drawing area-proportional Venn diagrams."
 
 +++
 

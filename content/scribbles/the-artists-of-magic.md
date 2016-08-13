@@ -4,6 +4,7 @@ seq = 2
 title = "The Artists of Magic"
 script = true
 style = true
+description = "Visualizing the artistic contributions of Magic's top artists over time."
 
 +++
 

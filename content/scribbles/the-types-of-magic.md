@@ -4,6 +4,7 @@ seq = 3
 title = "The Types of Magic"
 script = true
 style = true
+description = "Visualizing Magic card types by color."
 
 +++
 

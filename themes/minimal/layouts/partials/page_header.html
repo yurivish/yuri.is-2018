@@ -1,11 +1,13 @@
 <!doctype html>
 <html lang="en-US" style='background: #000;'>
 <head>
-		<base href="{{ .URL }}"> <!-- This is a fix for lack of trailing slash. -->
     <meta charset="utf-8">
+		<base href="{{ .URL }}"> <!-- This is a fix for lack of trailing slash. -->
 		<!-- 480 is good on phone, 750 is good on ipad, auto-adjust has trouble with sidebar -->
 		<meta name="viewport" content="width=480"> 
-
+		<meta property="og:title" content="{{ .Title }}">
+		<meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ if .IsPage }}{{ .Summary }}{{ else }}Photos &amp; scribbles.{{ end }}{{ end }}">
+		<meta property="og:url" content="{{ .Permalink }}">
 		<link rel="stylesheet" type="text/css" href="/css/fonts.css">
 		<link rel="stylesheet" type="text/css" href="/css/style.css">
     <script src='/js/lib.js' charset='utf-8'></script>
