@@ -10,7 +10,6 @@ style = true
 Here's a visualization of [Magic](https://en.wikipedia.org/wiki/Magic:_The_Gathering) card types split by color and shown over time. 
 
 Colors are the standard Magic fare: 
-I need some kind of shortcode for this...
 <img class='mana-legend' src='{{< relpath "W.svg" >}}' title='White' />,
 <img class='mana-legend' src='{{< relpath "U.svg" >}}' title='Blue' />,
 <img class='mana-legend' src='{{< relpath "B.svg" >}}' title='Black' />,
