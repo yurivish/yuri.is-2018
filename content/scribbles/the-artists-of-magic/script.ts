@@ -1,7 +1,6 @@
 "use strict";
 
 declare let d3: any;
-// TODO: Make it work with touch
 
 (function(slug) {
 	let sets = ["Limited Edition Alpha", "Limited Edition Beta", "Unlimited Edition", "Arabian Nights", "Antiquities", "Revised Edition", "Legends", "The Dark", "Fallen Empires", "Fourth Edition", "Ice Age", "Homelands", "Alliances", "Mirage", "Visions", "Fifth Edition", "Weatherlight", "Tempest", "Stronghold", "Exodus", "Urza's Saga", "Urza's Legacy", "Classic Sixth Edition", "Urza's Destiny", "Mercadian Masques", "Nemesis", "Prophecy", "Invasion", "Planeshift", "Seventh Edition", "Apocalypse", "Odyssey", "Torment", "Judgment", "Onslaught", "Legions", "Scourge", "Eighth Edition", "Mirrodin", "Darksteel", "Fifth Dawn", "Champions of Kamigawa", "Betrayers of Kamigawa", "Saviors of Kamigawa", "Ninth Edition", "Ravnica: City of Guilds", "Guildpact", "Dissension", "Coldsnap", "Time Spiral \"Timeshifted\"", "Time Spiral", "Planar Chaos", "Future Sight", "Tenth Edition", "Lorwyn", "Morningtide", "Shadowmoor", "Eventide", "Shards of Alara", "Conflux", "Alara Reborn", "Magic 2010", "Zendikar", "Worldwake", "Rise of the Eldrazi", "Magic 2011", "Scars of Mirrodin", "Mirrodin Besieged", "New Phyrexia", "Magic 2012", "Innistrad", "Dark Ascension", "Avacyn Restored", "Magic 2013", "Return to Ravnica", "Gatecrash", "Dragon's Maze", "Magic 2014 Core Set", "Theros", "Born of the Gods", "Journey into Nyx", "Magic 2015 Core Set", "Khans of Tarkir", "Fate Reforged", "Dragons of Tarkir", "Magic Origins", "Battle for Zendikar", "Oath of the Gatewatch", "Shadows over Innistrad", "Eldritch Moon"];
@@ -57,7 +56,7 @@ declare let d3: any;
 			.attr('width', d => d.width)
 			.attr('height', d => d.height + d.textOffset)
 			.on('mousemove', function(d) {
-				let index = ~~Math.min(d.values.length - 1, d.x.invert(d3.mouse(this)[0]))
+				let index = Math.max(0, Math.min(d.values.length - 1, Math.round(d.x.invert(d3.mouse(this)[0]))))
 				trans(both.select('path')).attr('opacity', 0.5)
 				both.select('.num').classed('active', true)
 					.text((d, i) => num(d.values[index], i))

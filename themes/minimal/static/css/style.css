@@ -1,4 +1,5 @@
 
+
 * { margin: 0; padding: 0; }
 
 body {
@@ -112,7 +113,7 @@ header.scribbles nav a.scribbles {
 
 main .inner {
 	max-width: 650px;
-	min-width: 320px;
+	min-width: 300px;
 }
 
  blockquote {
@@ -144,11 +145,20 @@ main .inner {
 article h1, article h1 a {
 	font-family: "Concourse T7";
 	font-size: 36px;
-	widows: 2;
 }
 
 article h1 {
 	margin-bottom: 1.35em;
+}
+
+article h2, article h2 a {
+	font-family: "Concourse T6";
+	font-size: 30px;
+	font-weight: normal;
+}
+
+article h2 {
+	margin-bottom: 0.75em;
 }
 
 article .meta {
@@ -162,7 +172,7 @@ article {
 	font-size: 22px;
 }
 
-article p {
+article p, article ol, article ul {
 	font-smoothing: antialiased;
 	-webkit-font-smoothing: antialiased;
 	line-height: 1.35;
