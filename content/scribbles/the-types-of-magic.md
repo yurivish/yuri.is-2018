@@ -7,7 +7,7 @@ style = true
 
 +++
 
-Here's a visualization of [Magic](https://en.wikipedia.org/wiki/Magic:_The_Gathering) card types split by color and shown over time. 
+Here's a visualization of [Magic](https://en.wikipedia.org/wiki/Magic:_The_Gathering) card types by color, shown over time. 
 
 Colors are the standard Magic fare: 
 <img class='mana-legend' src='{{< relpath "W.svg" >}}' title='White' />,
