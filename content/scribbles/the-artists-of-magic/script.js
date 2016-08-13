@@ -40,10 +40,7 @@
             .attr('y', function (d) { return d.height + d.textOffset; });
         both.select('.hover').attr('width', function (d) { return d.x(1) - d.x(0); });
         var trans = function (sel) { return sel.transition().duration(300).ease(d3.easeCubicOut); };
-        both.select('.background')
-            .attr('width', function (d) { return d.width; })
-            .attr('height', function (d) { return d.height + d.textOffset; })
-            .on('mousemove', function (d) {
+        function move(d) {
             var index = Math.max(0, Math.min(d.values.length - 1, Math.round(d.x.invert(d3.mouse(this)[0]))));
             trans(both.select('path')).attr('opacity', 0.5);
             both.select('.num').classed('active', true)
@@ -59,14 +56,20 @@
                 .attr('x', function (d) { return d.x(index); })
                 .attr('y', function (d) { return d.height / 2 - d.y(d.values[index]); })
                 .attr('height', function (d) { return 2 * d.y(d.values[index]); });
-        }).on('mouseleave', function (d) {
+        }
+        function end(d) {
             trans(both.select('path')).attr('opacity', 1);
             both.select('.num')
                 .classed('active', false)
                 .text(function (d, i) { return num(d.total, i); });
             both.select('rect.hover')
                 .style('display', 'none');
-        }); // We could open Gatherer on click.
+        }
+        both.select('.background')
+            .attr('width', function (d) { return d.width; })
+            .attr('height', function (d) { return d.height + d.textOffset; })
+            .on('mousemove', move).on('mouseleave', end)
+            .on('touchstart', move).on('touchmove', move).on('touchend', end);
         return enter;
     }
     function go() {
@@ -94,7 +97,10 @@
             x: d3.scaleLinear().domain([0, d.values.length]).range([0, gx.bandwidth()]).clamp(true),
             y: d3.scaleLinear().domain([0, d3.max(d.values)]).range([1, gy.bandwidth() / 2])
         }); });
-        svg.attr('height', 2 * vpad + d3.max(gy.range()));
+        svg
+            .attr('height', 2 * vpad + d3.max(gy.range()))
+            .style('-webkit-tap-highlight-color', 'transparent') // disable tap highlight on ios
+            .style('-webkit-touch-callout', 'none'); // disable selection
         var update = svg
             .selectAll('g.sparkline').data(data)
             .call(sparkline);

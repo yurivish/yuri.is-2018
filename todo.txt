@@ -1,6 +1,6 @@
 site to-do
+	- facebook descriptions
 	- favicon
-	- make facebook posts look more appealing. meta tags?
 	- 404 page
 
 possible to-do

@@ -136,11 +136,16 @@
             .attr('height', chartHeight);
         both.select('text.type')
             .text(function (d, i) { return plurals[i]; })
-            .attr('y', titleOffset)
-            .on('click', toggle);
+            .attr('y', titleOffset);
         both.select('text.description')
             .attr('x', chartWidth)
-            .attr('y', titleOffset);
+            .attr('y', titleOffset)
+            .on('click', toggle)
+            .on('touchstart', function () {
+            toggle();
+            d3.event.preventDefault();
+            d3.event.stopPropagation();
+        });
         both.select('text.time-start')
             .attr('y', chartHeight + axisOffset);
         both.select('text.set-name')
@@ -155,19 +160,25 @@
         // a clamped version of x here for mouse inverses; otherwise the same as the one in `streamgraph`.
         var x = d3.scaleLinear().domain([0, data[0].length - 1]).range([0, chartWidth]).clamp(true);
         var trans = function (sel) { return sel.transition().duration(300).ease(d3.easeCubicOut); };
-        svg.on('mousemove', function () {
-            var mx = d3.mouse(this)[0];
+        function move() {
+            var mx = d3.mouse(this)[0]; // d3.event.x //
             var index = Math.max(0, Math.min(data[0].length - 1, Math.round(x.invert(mx))));
             var name = setNames[index];
             var date = setReleaseDates[index];
             trans(both.select('.interact')).attr('opacity', 0.25);
             trans(both.select('.hover-line').attr('x1', mx).attr('x2', mx)).attr('opacity', 1);
             svg.selectAll('.set-name').text(date + ' — ' + name);
-        }).on('mouseleave', function () {
+        }
+        function end() {
             trans(both.select('.interact')).attr('opacity', 0);
             trans(both.select('.hover-line')).attr('opacity', 0);
             svg.selectAll('.set-name').text('');
-        });
+        }
+        svg
+            .style('-webkit-tap-highlight-color', 'transparent') // disable tap highlight on ios
+            .style('-webkit-touch-callout', 'none') // disable selection
+            .on('mousemove', move).on('mouseleave', end)
+            .on('touchstart', move).on('touchmove', move).on('touchend', end);
         d3.select('#' + slug).select('.toggle').on('click', toggle);
     }
     go();

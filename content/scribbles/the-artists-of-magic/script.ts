@@ -52,33 +52,37 @@ declare let d3: any;
 		both.select('.hover').attr('width', d => d.x(1) - d.x(0))
 
 		let trans = (sel) => sel.transition().duration(300).ease(d3.easeCubicOut)
+		function move(d) {
+			let index = Math.max(0, Math.min(d.values.length - 1, Math.round(d.x.invert(d3.mouse(this)[0]))))
+			trans(both.select('path')).attr('opacity', 0.5)
+			both.select('.num').classed('active', true)
+				.text((d, i) => num(d.values[index], i))
+				.attr('x', d => d.width)
+				.append('tspan')
+					.attr('text-anchor', 'right')
+					.attr('x', d.width)
+					.attr('dy', '1.5em')
+					.text(sets[index])
+			both.select('rect.hover')
+				.style('display', 'block')
+				.attr('x', d => d.x(index))
+				.attr('y', d => d.height/2 - d.y(d.values[index]))
+				.attr('height', d => 2 * d.y(d.values[index]))
+		}
+		function end(d) {
+			trans(both.select('path')).attr('opacity', 1)
+			both.select('.num')
+				.classed('active', false)
+				.text((d, i) => num(d.total, i))
+			both.select('rect.hover')
+				.style('display', 'none')
+		}
+
 		both.select('.background')
 			.attr('width', d => d.width)
 			.attr('height', d => d.height + d.textOffset)
-			.on('mousemove', function(d) {
-				let index = Math.max(0, Math.min(d.values.length - 1, Math.round(d.x.invert(d3.mouse(this)[0]))))
-				trans(both.select('path')).attr('opacity', 0.5)
-				both.select('.num').classed('active', true)
-					.text((d, i) => num(d.values[index], i))
-					.attr('x', d => d.width)
-					.append('tspan')
-						.attr('text-anchor', 'right')
-						.attr('x', d.width)
-						.attr('dy', '1.5em')
-						.text(sets[index])
-				both.select('rect.hover')
-					.style('display', 'block')
-					.attr('x', d => d.x(index))
-					.attr('y', d => d.height/2 - d.y(d.values[index]))
-					.attr('height', d => 2 * d.y(d.values[index]))
-			}).on('mouseleave', function(d) {
-				trans(both.select('path')).attr('opacity', 1)
-				both.select('.num')
-					.classed('active', false)
-					.text((d, i) => num(d.total, i))
-				both.select('rect.hover')
-					.style('display', 'none')
-			}) // We could open Gatherer on click.
+			.on('mousemove', move).on('mouseleave', end)
+			.on('touchstart', move).on('touchmove', move).on('touchend', end)
 
 		return enter
 	}
@@ -114,7 +118,11 @@ declare let d3: any;
 
 
 
-		svg.attr('height', 2 * vpad + d3.max(gy.range()))
+		svg
+			.attr('height', 2 * vpad + d3.max(gy.range()))
+			.style('-webkit-tap-highlight-color', 'transparent') // disable tap highlight on ios
+			.style('-webkit-touch-callout', 'none') // disable selection
+			
 
 		let update = svg
 			.selectAll('g.sparkline').data(data)
