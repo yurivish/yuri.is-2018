@@ -7,9 +7,9 @@ style = true
 
 +++
 
-The most prolific [Magic](https://en.wikipedia.org/wiki/Magic:_The_Gathering) artist of all time is [Kev Walker](http://gatherer.wizards.com/Pages/Search/Default.aspx?action=advanced&artist=%5B%22Kev%20Walker%22%5D), with 429 paintings since 1996. The game is over 20 years old, so this is a pretty impressive feat.
+The most prolific [Magic](https://en.wikipedia.org/wiki/Magic:_The_Gathering) artist of all time is [Kev Walker](http://gatherer.wizards.com/Pages/Search/Default.aspx?action=advanced&artist=%5B%22Kev%20Walker%22%5D), with 429 paintings since 1996.
 
-The charts below reveal patterns of artistic contribution over time for Magic's top artists.
+The charts below reveal patterns of artistic contribution over more than two decades for Magic's top artists.
 
 Card sets are ordered horizontally over time, with card volume shown by height. Hover or tap a chart to compare individual sets across artists.
 
@@ -22,4 +22,4 @@ Card sets are ordered horizontally over time, with card volume shown by height. 
 	  </defs>
 </svg>
 
-_Data notes --_ Card counts include reprints. Sets are only core sets and expansions, and not special sets like [Portal](https://en.wikipedia.org/wiki/Portal_(Magic:_The_Gathering)) and [Unglued](https://en.wikipedia.org/wiki/Unglued). Here's the [source data](http://mtgjson.com).
+_Data notes --_ Card counts include reprints. Sets are only core sets and expansions, not special sets like [Portal](https://en.wikipedia.org/wiki/Portal_(Magic:_The_Gathering)) and [Unglued](https://en.wikipedia.org/wiki/Unglued). Here's the [source data](http://mtgjson.com).
