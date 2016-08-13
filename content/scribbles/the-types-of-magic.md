@@ -23,7 +23,7 @@ Colors are the standard Magic fare:
 	<defs><linearGradient id="the-types-of-magic-grad" x1="0" y1="0" x2="0" y2="100%"><stop offset="0" stop-color="#fff" stop-opacity="1"/><stop offset="100%" stop-color="#fff" stop-opacity="0.75"/></linearGradient>
 </svg>
 
-Colors in each chart are ordered by size, illustrating that every card type is most often found in a specific color -- creatures in <img class='mana-mini' src='{{< relpath "G.svg" >}}' title='Green' />, instants in <img class='mana-mini' src='{{< relpath "U.svg" >}}' title='Blue' />, enchantments in <img class='mana-mini' src='{{< relpath "W.svg" >}}' title='White' />, and sorceries in <img class='mana-mini' src='{{< relpath "B.svg" >}}' title='Black' />.
+The colors are sorted by size, showing how each card type has a characteristic color -- creatures in <img class='mana-mini' src='{{< relpath "G.svg" >}}' title='Green' />, instants in <img class='mana-mini' src='{{< relpath "U.svg" >}}' title='Blue' />, enchantments in <img class='mana-mini' src='{{< relpath "W.svg" >}}' title='White' />, and sorceries in <img class='mana-mini' src='{{< relpath "B.svg" >}}' title='Black' />.
 
 Dips in the chart happen when cards types drop to zero, such as in 2003, when the all-creature set [Legions](http://mtgsalvation.gamepedia.com/Legions) was released. And three sets have no artifacts: [Torment](http://mtgsalvation.gamepedia.com/Torment), [Legions](http://mtgsalvation.gamepedia.com/Legions), and [Planar Chaos](http://mtgsalvation.gamepedia.com/Planar_Chaos).
 
