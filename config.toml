@@ -1,5 +1,5 @@
 baseurl = "http://yuri.is/"
-RelativeURLs = true
+relativeURLs = true
 languageCode = "en-us"
 title = "Yuri Vishnevsky"
 theme = "minimal"
@@ -7,3 +7,4 @@ theme = "minimal"
 [blackfriday]
 latexDashes = false
 plainIDAnchors = false
+sourceRelativeLinksEval = true

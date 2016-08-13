@@ -10,12 +10,13 @@ style = true
 Here's a visualization of [Magic](https://en.wikipedia.org/wiki/Magic:_The_Gathering) card types split by color and shown over time. 
 
 Colors are the standard Magic fare: 
-<img class='mana-legend' src='W.svg' title='White' />,
-<img class='mana-legend' src='U.svg' title='Blue' />,
-<img class='mana-legend' src='B.svg' title='Black' />,
-<img class='mana-legend' src='R.svg' title='Red' />,
-<img class='mana-legend' src='G.svg' title='Green' />,
-<img class='mana-legend' src='1.svg' title='Colorless' />.
+I need some kind of shortcode for this...
+<img class='mana-legend' src='{{< relpath "W.svg" >}}' title='White' />,
+<img class='mana-legend' src='{{< relpath "U.svg" >}}' title='Blue' />,
+<img class='mana-legend' src='{{< relpath "B.svg" >}}' title='Black' />,
+<img class='mana-legend' src='{{< relpath "R.svg" >}}' title='Red' />,
+<img class='mana-legend' src='{{< relpath "G.svg" >}}' title='Green' />,
+<img class='mana-legend' src='{{< relpath "1.svg" >}}' title='Colorless' />.
 
 <a href='#' class='toggle'>Press here</a> to toggle between relative and absolute charts.
 
@@ -37,4 +38,4 @@ If you know your Magic history there are some fun things to note:
 
 1. Mirrodin block has lots artifacts, but they're all creatures (or lands) since colorless spells weren't invented yet.
 
-_Data notes --_ Relative and absolute views are normalized by set size, adjusted for cards with multiple colors and types. Here's where I got the [mana symbols](http://mtgsalvation.gamepedia.com/Category:Mana_symbols) and the [source data](http://mtgjson.com).
+_Data notes --_ Relative and absolute views are normalized by set size and adjusted for cards with multiple colors and types. Here's where I got the [mana symbols](http://mtgsalvation.gamepedia.com/Category:Mana_symbols) and the [source data](http://mtgjson.com).
