@@ -28,4 +28,4 @@ The colors are sorted by size, showing how each card type has a characteristic c
 Dips in the chart happen when cards types drop to zero, such as in 2003, when the all-creature set [Legions](http://mtgsalvation.gamepedia.com/Legions) was released. And three sets have no artifacts: [Torment](http://mtgsalvation.gamepedia.com/Torment), [Legions](http://mtgsalvation.gamepedia.com/Legions), and [Planar Chaos](http://mtgsalvation.gamepedia.com/Planar_Chaos).
 
 
-_Data notes --_ Relative and absolute views are normalized by set size and adjusted for cards with multiple colors and types. Here's where I got the [mana symbols](http://mtgsalvation.gamepedia.com/Category:Mana_symbols) and the [source data](http://mtgjson.com).
+_Data notes --_ All card counts are normalized by set size and adjusted for cards with multiple colors and types. Here's where I got the [mana symbols](http://mtgsalvation.gamepedia.com/Category:Mana_symbols) and [source data](http://mtgjson.com).
