@@ -23,7 +23,7 @@ Colors are the standard Magic fare:
 	<defs><linearGradient id="the-types-of-magic-grad" x1="0" y1="0" x2="0" y2="100%"><stop offset="0" stop-color="#fff" stop-opacity="1"/><stop offset="100%" stop-color="#fff" stop-opacity="0.75"/></linearGradient>
 </svg>
 
-Colors in each chart are ordered by size, illustrating that every card type is most often found in a specific color -- creatures in <img class='mana-mini' src='G.svg' title='Green' />, instants in <img class='mana-mini' src='U.svg' title='Blue' />, enchantments in <img class='mana-mini' src='W.svg' title='White' />, and sorceries in <img class='mana-mini' src='B.svg' title='Black' />.
+Colors in each chart are ordered by size, illustrating that every card type is most often found in a specific color -- creatures in <img class='mana-mini' src='{{< relpath "G.svg" >}}' title='Green' />, instants in <img class='mana-mini' src='{{< relpath "U.svg" >}}' title='Blue' />, enchantments in <img class='mana-mini' src='{{< relpath "W.svg" >}}' title='White' />, and sorceries in <img class='mana-mini' src='{{< relpath "B.svg" >}}' title='Black' />.
 
 If you know your Magic history there are some fun things to note:
 
