@@ -14,9 +14,9 @@ _August 15:_ I decided that this site needs an about page. This is a first pass.
 
 I build tools for creativity and understanding. My background is in computer science, linguistics, and design.
 
-My most recent project is [Silk 2 for iOS](https://itunes.apple.com/us/app/silk-2-interactive-generative/id1050339928?mt=8), an artistic tool that helps bridge the gap between ability and taste. Over 25 million people have played with the [original site](http://weavesilk.com), and the app was featured on the front of the App Store. 
+My most recent project is [Silk 2 for iOS](https://itunes.apple.com/us/app/silk-2-interactive-generative/id1050339928?mt=8), an artistic tool that helps bridge the gap between ability and taste.
 
-Silk was exhibited for several years in the [Children's Creativity Museum](http://creativity.org) in San Francisco.
+Over 25 million people have played with the [original site](http://weavesilk.com), and it's been exhibited in the [Children's Creativity Museum](http://creativity.org) in San Francisco.
 
 Most people enjoy making pieces with lots of symmetry:
 
