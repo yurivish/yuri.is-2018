@@ -10,9 +10,7 @@ draft = true
 
 Get in touch -- [email me](mailto:yurivish@gmail.com).
 
-_August 15:_ I decided that this site needs an about page. This is a first pass.
-
-I build tools for creativity and understanding. My background is in computer science, linguistics, and design.
+My background is in computer science, linguistics, and design, and I spend a lot of my time building tools for creativity and understanding. 
 
 My most recent project is [Silk 2 for iOS](https://itunes.apple.com/us/app/silk-2-interactive-generative/id1050339928?mt=8), an artistic tool that helps bridge the gap between ability and taste.
 
@@ -35,3 +33,5 @@ Another fun project was a series of fine art prints that double as business card
 ![](/cardcrafting/img/progress-center-7.jpg)
 
 _Art notes --_ The pictures of the eye and person were drawn by [Daniel Coonfield](https://www.linkedin.com/in/daniel-coonfield-77624937). The other Silk art was drawn by [Oliver Wetter](http://www.fantasio.info/). The colors in the piece above are from a [painting of water lilies](http://yuri.is/cardcrafting/img_2x/water_lilies_monet.jpg) by Claude Monet.
+
+
