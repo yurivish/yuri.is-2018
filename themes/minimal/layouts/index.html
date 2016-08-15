@@ -2,7 +2,7 @@
 {{ partial "header" "scribbles" }}
 <main class="scribbles">
 	<div class="inner">
-		{{ range where (where .Data.Pages "Section" "scribbles") ".Draft" false }}
+	{{ range where (where .Data.Pages "Section" "scribbles") ".Draft" false }}
 			{{ partial "scribble.html" . }}
 		{{ end }}
 	</div>

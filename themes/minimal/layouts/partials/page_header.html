@@ -1,18 +1,22 @@
 <!doctype html>
 <html lang="en-US" style='background: #000;'>
 <head>
-    <meta charset="utf-8">
-		<base href="{{ .URL }}"> <!-- This is a fix for lack of trailing slash. -->
-		<!-- 480 is good on phone, 750 is good on ipad, auto-adjust has trouble with sidebar -->
-		<meta name="viewport" content="width=480"> 
-		<meta property="og:title" content="{{ .Title }}">
-		<meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ if .IsPage }}{{ .Summary }}{{ else }}photos &amp; scribbles.{{ end }}{{ end }}">
-		<meta property="og:url" content="{{ .Permalink }}">
-		<link rel="stylesheet" type="text/css" href="/css/fonts.css">
-		<link rel="stylesheet" type="text/css" href="/css/style.css">
-    <script src='/js/lib.js' charset='utf-8'></script>
-    <script src='/js/d3.min.js' charset='utf-8'></script>
-    <title>{{ .Title }}</title>
+	<meta charset="utf-8">
+	<base href="{{ .URL }}"> <!-- This is a fix for lack of trailing slash. -->
+	<!-- 480 is good on phone, 750 is good on ipad, auto-adjust has trouble with sidebar -->
+	<meta name="viewport" content="width=480"> 
+	<meta property="og:title" content="{{ .Title }}">
+	<meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ if .IsPage }}{{ .Summary }}{{ else }}photos &amp; scribbles.{{ end }}{{ end }}">
+	<meta property="og:url" content="{{ .Permalink }}">
+	<link rel="stylesheet" type="text/css" href="/css/fonts.css">
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+	{{ if .RSSlink }}
+	<link href="{{ .RSSlink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
+	<link href="{{ .RSSlink }}" rel="feed" type="application/rss+xml" title="{{ .Site.Title }}" />
+	{{ end }}
+	<script src='/js/lib.js' charset='utf-8'></script>
+	<script src='/js/d3.min.js' charset='utf-8'></script>
+	<title>{{ .Title }}</title>
 </head>
 <!-- ontouchstart fixes sticky hover/active states. -->
 <body lang="en" ontouchstart="">

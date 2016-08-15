@@ -1,6 +1,5 @@
 site to-do
 	- http://www.typescriptlang.org/docs/handbook/tsconfig-json.html
-	- facebook descriptions
 	- favicon
 	- 404 page
 
@@ -11,6 +10,7 @@ possible to-do
 	- highlight color
 	- now page (home page?)
 	- Note: We could do something a bit cleverer for post lists, and loop over for scripts separately. Then they could be unified and optimized by the downstream server
+x facebook descriptions
 x touch interactions on mtg post. 
 	- turns out to work already
 x use tilt for venn diagram interaction on mobile?
