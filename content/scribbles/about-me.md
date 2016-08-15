@@ -29,4 +29,4 @@ Another recent project was a series of fine art prints that double as business c
 
 ![](/cardcrafting/img/progress-center-7.jpg)
 
-_Art notes --_ The pictures of the eye and person were drawn by [Daniel Coonfield](https://www.linkedin.com/in/daniel-coonfield-77624937), and the other Silk art is by [Oliver Wetter](http://www.fantasio.info/).
+_Art notes --_ The pictures of the eye and person were drawn by [Daniel Coonfield](https://www.linkedin.com/in/daniel-coonfield-77624937). The other Silk art was drawn by [Oliver Wetter](http://www.fantasio.info/).
