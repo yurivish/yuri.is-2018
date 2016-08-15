@@ -3,8 +3,9 @@ relativeURLs = true
 languageCode = "en-us"
 title = "Yuri Vishnevsky"
 theme = "minimal"
+builddrafts = true
 
 [blackfriday]
 latexDashes = false
-plainIDAnchors = false
+plainIDAnchors = true
 sourceRelativeLinksEval = true
