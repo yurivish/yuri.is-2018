@@ -11,7 +11,7 @@ My background is in computer science, linguistics, and design, and my love is bu
 
 My most recent project is [Silk 2 for iOS](https://itunes.apple.com/us/app/silk-2-interactive-generative/id1050339928?mt=8), a new take on the [original](http://weavesilk.com). Over 25 million people have played with the site, and the app was recently featured on the front page of the App Store. 
 
-Silk has been exhibit for several years in the [Children's Creativity Museum](http://creativity.org) in San Francisco.
+Silk has also been on exhibit for several years in the [Children's Creativity Museum](http://creativity.org) in San Francisco.
 
 It's been interesting to see the art that people create. Most enjoy making pieces with lots of symmetry.
 
