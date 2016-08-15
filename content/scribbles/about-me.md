@@ -5,7 +5,7 @@ title = "Quick About Me"
 
 +++
 
-Here's a quick post about me -- I noticed today that my [cards](http://yuri.is/cardcrafting) and site have little information on that subject.
+Today I noticed that my site has little information about me, so here's a quick addition.
 
 My background is in computer science, linguistics, and design, and my love is building tools for creativity and understanding. This includes artistic tools that bridge the gap between ability and taste, and user interfaces for exploring data and ideas.
 
@@ -25,4 +25,8 @@ But in the hands of an artist something remarkable happens...
 
 <img src='{{< relpath "Angelic%20creature-oliver-wetter.jpg" >}}' srcset='{{< relpath "Angelic%20creature-oliver-wetter.jpg" >}} 1000w, {{< relpath "2x/Angelic%20creature-oliver-wetter.jpg" >}} 2000w'  />
 
-_Art notes --_ The pictures of the eye and person were drawn by [Daniel Coonfield](https://www.linkedin.com/in/daniel-coonfield-77624937), and the others are by [Oliver Wetter](http://www.fantasio.info/).
+Another recent project was a series of fine art prints that double as business cards. I wrote an essay on the [process behind creating and printing them](http://yuri.is/cardcrafting).
+
+![](/cardcrafting/img/progress-center-7.jpg)
+
+_Art notes --_ The pictures of the eye and person were drawn by [Daniel Coonfield](https://www.linkedin.com/in/daniel-coonfield-77624937), and the other Silk art is by [Oliver Wetter](http://www.fantasio.info/).
