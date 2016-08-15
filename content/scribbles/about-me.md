@@ -10,17 +10,15 @@ draft = true
 
 Get in touch -- [email me](mailto:yurivish@gmail.com).
 
-While at a picnic today I realized that this site has no information about me. Here's a first pass, to be condensed later.
+_August 15:_ I decided that this site needs an about page. This is a first pass, to be refined later.
 
-My background is in computer science, linguistics, and design. My love is building tools for creativity and understanding. 
+I build tools for creativity and exploration. My background is in computer science, linguistics, and design.
 
-Right now I'm working on artistic tools that bridge the gap between ability and taste, and on better user interfaces for exploring information.
-
-My most recent project is [Silk 2 for iOS](https://itunes.apple.com/us/app/silk-2-interactive-generative/id1050339928?mt=8), a new take on the [original](http://weavesilk.com). Over 25 million people have played with the site, and the app was featured on the front of the App Store. 
+My most recent project is [Silk 2 for iOS](https://itunes.apple.com/us/app/silk-2-interactive-generative/id1050339928?mt=8), an artistic tool that helps bridge the gap between ability and taste. Over 25 million people have played with the [original site](http://weavesilk.com), and the app was featured on the front of the App Store. 
 
 Silk has also been on exhibit for several years in the [Children's Creativity Museum](http://creativity.org) in San Francisco.
 
-Most people using Silk enjoy making pieces with lots of symmetry:
+Most people enjoy making pieces with lots of symmetry:
 
 <img src='{{< relpath "0x0ss-5.jpg" >}}' srcset='{{< relpath "0x0ss-5.jpg" >}} 1000w, {{< relpath "2x/0x0ss-5.jpg" >}} 2000w'  />
 
@@ -36,4 +34,4 @@ Another fun project is a series of fine art prints that double as business cards
 
 ![](/cardcrafting/img/progress-center-7.jpg)
 
-_Art notes --_ The pictures of the eye and person were drawn by [Daniel Coonfield](https://www.linkedin.com/in/daniel-coonfield-77624937). The other Silk art was drawn by [Oliver Wetter](http://www.fantasio.info/).
+_Art notes --_ The pictures of the eye and person were drawn by [Daniel Coonfield](https://www.linkedin.com/in/daniel-coonfield-77624937). The other Silk art was drawn by [Oliver Wetter](http://www.fantasio.info/). The colors in the piece above are from a [painting of water lilies](http://yuri.is/cardcrafting/img_2x/water_lilies_monet.jpg) by Claude Monet.
