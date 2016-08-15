@@ -5,7 +5,7 @@ title = "Quick About Me"
 
 +++
 
-Here's a quick post about me -- I noticed earlier this evening that my site and [cards](http://yuri.is/cardcrafting) contain little to no information on that particular subject...
+Here's a quick post about me -- I noticed earlier this evening that my site and [cards](http://yuri.is/cardcrafting) contain little information on that subject.
 
 My background is in computer science, linguistics, and design, and my love is building tools for creativity and understanding. This includes artistic tools that bridge the gap between ability and taste, and user interfaces for exploring data and ideas.
 
