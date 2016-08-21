@@ -12,7 +12,7 @@ Get in touch -- [email me](mailto:yurivish@gmail.com).
 
 My background is in computer science, linguistics, and design, and I spend a lot of my time building tools for creativity and understanding. 
 
-My most recent project is [Silk 2 for iOS](https://itunes.apple.com/us/app/silk-2-interactive-generative/id1050339928?mt=8), an artistic tool that helps bridge the gap between ability and taste.
+My most recent project is [Silk 2 for iOS](https://itunes.apple.com/us/app/silk-2-interactive-generative/id1050339928?mt=8), which helps bridge the gap between people's artistic ability and taste.
 
 Over 25 million people have played with the [original site](http://weavesilk.com), and it's been exhibited in the [Children's Creativity Museum](http://creativity.org) in San Francisco.
 
