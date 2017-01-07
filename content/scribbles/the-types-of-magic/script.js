@@ -57,7 +57,7 @@
         var width = svg.node().getBoundingClientRect().width;
         // normalize height to a baseline width of 500px
         var chartWidth = width, chartHeight = 100 * (chartWidth / 500);
-        var spacingScale = 2;
+        var spacingScale = 1.85;
         var height = chartHeight * spacingScale * (data.length);
         svg
             .attr('width', width)

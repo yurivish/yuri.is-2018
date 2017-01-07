@@ -114,8 +114,6 @@ declare let d3: any;
 				y: d3.scaleLinear().domain([0, d3.max(d.values)]).range([1, gy.bandwidth()/2])
 			}))
 
-
-
 		svg
 			.attr('height', 2 * vpad + d3.max(gy.range()))
 			.style('-webkit-tap-highlight-color', 'transparent') // disable tap highlight on ios
