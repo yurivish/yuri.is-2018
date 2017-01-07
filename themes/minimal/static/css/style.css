@@ -144,11 +144,11 @@ main .inner {
 }
 article h1, article h1 a {
 	font-family: "Concourse T7";
-	font-size: 32px;
+	font-size: 36px;
 }
 
 article h1 {
-	margin-bottom: 1.0em;
+	margin-bottom: 1.3em;
 }
 
 article h2, article h2 a {
@@ -169,7 +169,7 @@ article .meta {
 
 article {
 	font-family: "Equity Text A";
-	font-size: 18px;
+	font-size: 22px;
 }
 
 article p, article ol, article ul {
@@ -243,7 +243,7 @@ svg.block {
 }
 
 article .meta time {
-	 float: right; 
+	float: right;
 }
 
 article {
