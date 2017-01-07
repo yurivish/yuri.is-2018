@@ -145,6 +145,7 @@ main .inner {
 article h1, article h1 a {
 	font-family: "Concourse T7";
 	font-size: 36px;
+	line-height: 1;
 }
 
 article h1 {
@@ -164,7 +165,7 @@ article h2 {
 article .meta {
 	font-family: "Equity Caps A";
 	font-size: 14px;
-	margin-bottom: 1em;
+	margin-bottom: 1.25em;
 }
 
 article {
