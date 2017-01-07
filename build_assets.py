@@ -34,26 +34,26 @@ def main():
 	else:
 		call(['git', 'clone', 'https://github.com/yurivish/assets'], cwd=relpath())
 
-	## Photos
+	## Photos (We no longer have a photos section, so this is commented out)
 
-	print('Generating images.')
-
-	# Iterate through all photo posts, then regenerate any missing or outdated images.
-	for path in glob.glob(relpath('content/photos/*.md')):
-		(name, ext) = os.path.splitext(os.path.basename(path)) # e.g. (flower, md)
-
-		# Determine whether to use the edited or original photo
-		original_path = relpath('assets/photos/original/%s.jpg' % name)
-		edited_path   = relpath('assets/photos/edited/%s.jpg' % name)
-		inpath = edited_path if os.path.exists(edited_path) else original_path
-		assert(os.path.exists(inpath)) # Assert the input exists
-
-		# Output paths. We might want to add thumbnails eventually.
-		outpath_1x = relpath('content/photos/image/%s.jpg' % name)
-		outpath_2x = relpath('content/photos/image/%s@2x.jpg' % name)
-
-		generate_if_needed(inpath, outpath_1x, 1)
-		generate_if_needed(inpath, outpath_2x, 2)
+	# print('Generating images.')
+	#
+	# # Iterate through all photo posts, then regenerate any missing or outdated images.
+	# for path in glob.glob(relpath('content/photos/*.md')):
+	# 	(name, ext) = os.path.splitext(os.path.basename(path)) # e.g. (flower, md)
+	#
+	# 	# Determine whether to use the edited or original photo
+	# 	original_path = relpath('assets/photos/original/%s.jpg' % name)
+	# 	edited_path   = relpath('assets/photos/edited/%s.jpg' % name)
+	# 	inpath = edited_path if os.path.exists(edited_path) else original_path
+	# 	assert(os.path.exists(inpath)) # Assert the input exists
+	#
+	# 	# Output paths. We might want to add thumbnails eventually.
+	# 	outpath_1x = relpath('content/photos/image/%s.jpg' % name)
+	# 	outpath_2x = relpath('content/photos/image/%s@2x.jpg' % name)
+	#
+	# 	generate_if_needed(inpath, outpath_1x, 1)
+	# 	generate_if_needed(inpath, outpath_2x, 2)
 
 	## Cardcrafting
 	print("Copying cardcrafting content.")
