@@ -170,7 +170,7 @@ article .meta {
 
 article {
 	font-family: "Equity Text A";
-	font-size: 22px;
+	font-size: 20px;
 }
 
 article p, article ol, article ul {
@@ -195,9 +195,9 @@ main.scribbles { background: #554e65; }
 .scribbles article { color: #eee6ff; }
 
 .photos article h1, h2, h3 { color: #000; }
-.scribbles article h1, 
-.scribbles article h1 a, 
-.scribbles article h2, 
+.scribbles article h1,
+.scribbles article h1 a,
+.scribbles article h2,
 .scribbles article h3 { font-weight: normal; color: #fff; }
 .scribbles article h1 a { border-bottom-color: transparent; }
 
@@ -207,7 +207,7 @@ main.scribbles { background: #554e65; }
 }
 
 .scribbles article em {
-	// color: #fff6ae;
+	color: #fff6ae;
 }
 
 .scribbles article a {
@@ -263,7 +263,7 @@ article:last-child {
 	margin-bottom: 10em;
 }
 
-.photos img { 
+.photos img {
 	max-width: calc(650px - 2 * 16px);
 	width: calc(100% - 2 * 16px);
 	box-shadow: 0 0 10px rgba(0,0,0,0.25);
@@ -272,7 +272,7 @@ article:last-child {
 }
 
 
-.scribbles img { 
+.scribbles img {
 	max-width: calc(650px - 2 * 2px);
 	width: calc(100% - 2 * 2px);
 	box-shadow: 0 0 10px rgba(0,0,0,0.25);
