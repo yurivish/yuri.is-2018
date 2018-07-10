@@ -1,4 +1,4 @@
-+++
+	+++
 date = "2017-01-08T16:46:00-05:00"
 title = "Finding Mount Everest"
 seq = 4
@@ -9,13 +9,11 @@ draft = true
 +++
 
 <!-- Peak Detection For Minimalists -->
+<!-- Finding Mount Everest -->
 <!-- Recently I was working on a visualization of [food seasonality](http://rhythm-of-food.net) and needed to detect the times at which	 search interest spiked. -->
 <!--  that I used on a [recent visualization project](http://rhythm-of-food.net) where it was put to work to find sudden spikes in various food searches on Google Search -->
 
 <!-- Here's the simple approach I used to find the peaks in a time series. -->
-Here's a simple way to find the peaks in a series of samples.
-
-First, score each sample for spikiness by comparing it to its shortest neighbors on each side. The bigger the difference, the higher the score.
 
 <!-- <svg class='some-time-series'></svg> -->
 <!-- _data => scores => thresholds_ -->
@@ -26,19 +24,24 @@ First, score each sample for spikiness by comparing it to its shortest neighbors
 <!-- _illustration of scores for various standard shapes, comparing left & right_ -->
 <!-- _show the scores for each sample in the original chart_ -->
 
-Next, use the scores to pick out the globally strongest peaks. We apply a sensitivity threshold, keeping only the samples whose scores lie above and discarding the rest.
-
 <!-- <svg></svg> -->
 <!-- _show the above chart, now with a sensitivity waterline_ -->
 
 <!-- <svg></svg> -->
 
-To stop peaks that span multiple samples from appearing multiple times in our final list, we coalesce peaks that are close together.
-
-<!-- There's a small problem -- peaks spanning multiple samples appear multiple times. To fix this, we coalesce peaks that are close together. -->
-
+<!-- There's a small problem - peaks spanning multiple samples appear multiple times. To fix this, we coalesce peaks that are close together. -->
 
 <!-- _final, coalesced peaks_ -->
+
+Here's a simple way to find the peaks in a time series. It's what I used to label holidays in [The Rhythm of Food](http://rhythm-of-food.net).
+
+1. You have an array of data points (samples). Compute a peak score for each sample by comparing it to its shortest neighbors on each side. The bigger the difference, the higher the score.
+
+
+2. Each sample now has a score, and we want to use them to filter the peaks. Apply a sensitivity thrshold to the scores to pick out the globally strongest peaks.
+
+3. To prevent peaks that span multiple samples from appearing multiple times in the final list, coalesce peaks that are close together.
+
 
 [See the code »](#)
 

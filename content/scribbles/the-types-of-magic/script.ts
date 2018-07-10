@@ -41,7 +41,7 @@ declare let d3: any;
 				.style('stroke', d => 'rgba(0,0,0,0.4)')
 
 			let both = update.merge(enter)
-			
+
 			let sel = doTransition ? both.transition().duration(500) : both
 			sel
 				.attr('d', area)
@@ -82,7 +82,7 @@ declare let d3: any;
 			both.select('.streamgraph')
 				.call(streamgraph, chartWidth, chartHeight, doTransition, relativeProportions)
 		}
-		
+
 		let toggle = () => {
 		    relativeProportions = !relativeProportions;
 		    render(true);
@@ -180,7 +180,7 @@ declare let d3: any;
 				d3.event.preventDefault()
 				d3.event.stopPropagation()
 			})
-			
+
 		both.select('text.time-start')
 			.attr('y', chartHeight + axisOffset)
 

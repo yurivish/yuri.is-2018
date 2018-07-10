@@ -135,7 +135,7 @@
         var x = d3.scaleBand().domain(d3.range(spacings.length))
             .rangeRound([0, width]).paddingOuter(0).paddingInner(0.35);
         var strokeWidth = 1.5, r = x.bandwidth() / 2 - strokeWidth;
-        var height = 5 * r + 20; // +constant for labels 
+        var height = 5 * r + 20; // +constant for labels
         svg.attr('height', height);
         var data = spacings.map(function (pc) {
             return {

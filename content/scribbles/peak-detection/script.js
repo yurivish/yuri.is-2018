@@ -97,7 +97,7 @@ function findPeaks(data, lookaround=2, sensitivity=1.5, coalesce=2) {
 		// 	.attr('stroke-width', 2)
 		// 	.attr('stroke-linecap', 'round')
 		// 	.on('mouseenter', (d,i)=>console.log(i, new Date(d.date)))
-			// .attr('shape-rendering', 'crispEdges')
+		// 	.attr('shape-rendering', 'crispEdges')
 
 
 	let xDate = d3.scaleLinear().domain(d3.extent(data, d => d.date)).range([0, data.length * 4])
